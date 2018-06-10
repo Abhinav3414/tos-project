@@ -1,0 +1,26 @@
+<div *ngIf="  data.customerTeamMember!==undefined" >
+   <h2 *ngIf="data.customerTeamMember.id === ''" mat-dialog-title>Create TeamMember</h2>
+   <h2   *ngIf="data.customerTeamMember.id !== ''" mat-dialog-title>Update TeamMember</h2>
+   <mat-dialog-content>
+      <form id="formNewTeamMemberUpdate" name="formNewTeamMemberUpdate"  #teamMemberUpdate="ngForm">
+        <mat-form-field>
+          <mat-select [(value)]="selected" [(ngModel)]="data.customerTeamMember.employeeId" placeholder="Employee" name="employeeId" >
+            <mat-option *ngFor="let employee of data.employees" [value]="employee.id">
+              {{ employee.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Role" name="role" [value]="data.customerTeamMember.role" [(ngModel)]="data.customerTeamMember.role" ngModel><br>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Velocity (Ave. Story Points/Sprint)" name="velocity" [value]="data.customerTeamMember.velocity" [(ngModel)]="data.customerTeamMember.velocity" ngModel>
+         </mat-form-field>
+      </form>
+   </mat-dialog-content>
+   <mat-dialog-actions>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerTeamMember *ngIf="data.customerTeamMember.id !== ''">Update</button>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerTeamMember *ngIf="data.customerTeamMember.id === ''">Add</button>
+      <button mat-button mat-dialog-close="dialogDismissed" disableRipple="true" class="tos-button">Cancel</button>
+   </mat-dialog-actions>
+</div>

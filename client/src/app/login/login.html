@@ -1,0 +1,22 @@
+<h2 class="tos-login-heading">Team Operations System</h2>
+<mat-card flex="flex">
+   <h3> Login </h3>
+   <mat-card-content>
+      <br>
+      <mat-form-field>
+         <input matInput placeholder="Username"  [(ngModel)]="user.username" required >
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+         <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"  [(ngModel)]="user.password" required>
+         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
+      <br><br>
+      <button mat-raised-button class="tos-primary-button" (click)="login(user)">Login</button>
+      <br><br>
+      <a *ngIf = "wrongCreds !== undefined" style="padding-left: 16px; color: red; font-size: 12px"> {{wrongCreds}} </a>
+      <p class="font-small grey-text d-flex justify-content-end">Not a member?
+         <a routerLink="../../view/register" href="#" class="blue-text ml-1"> Sign Up</a>
+      </p>
+   </mat-card-content>
+</mat-card>

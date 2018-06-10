@@ -1,0 +1,28 @@
+<div *ngIf="  data.customerStakeholder!==undefined" >
+   <h2 *ngIf="data.customerStakeholder.id === ''" mat-dialog-title>Create StakeHolder</h2>
+   <h2   *ngIf="data.customerStakeholder.id !== ''" mat-dialog-title>Update StakeHolder</h2>
+   <mat-dialog-content>
+      <form id="formNewStakeholderUpdate" name="formNewStakeholderUpdate"  #stakeholderDataUpdate="ngForm" >
+          <mat-checkbox [value]="data.customerStakeholder.contactPerson" name="contactPerson"
+           [(ngModel)]="data.customerStakeholder.contactPerson" disableRipple="true" [disabled]="data.getDisabled(data.customerStakeholder.id)">Contact Person</mat-checkbox>
+        <br><br>
+         <mat-form-field >
+            <input matInput placeholder="Name" name="name" [value]="data.name" [(ngModel)]="data.customerStakeholder.name" ngModel>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Role" name="role" [value]="data.customerStakeholder.role" [(ngModel)]="data.customerStakeholder.role" ngModel>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Email" name="email" [value]="data.customerStakeholder.email" [(ngModel)]="data.customerStakeholder.email" ngModel>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Phone No" name="phoneNo" [value]="data.customerStakeholder.phoneNo" [(ngModel)]="data.customerStakeholder.phoneNo" ngModel>
+         </mat-form-field>
+      </form>
+   </mat-dialog-content>
+   <mat-dialog-actions>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerStakeholder *ngIf="data.customerStakeholder.id !== ''">Update</button>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerStakeholder *ngIf="data.customerStakeholder.id === ''">Add</button>
+      <button mat-button mat-dialog-close="dialogDismissed" disableRipple="true" class="tos-button">Cancel</button>
+   </mat-dialog-actions>
+</div>

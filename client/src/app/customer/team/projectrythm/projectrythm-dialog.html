@@ -1,0 +1,32 @@
+<div *ngIf="  data.customerProjectRythm!==undefined" >
+   <h2 *ngIf="data.customerProjectRythm.id === ''" mat-dialog-title>Create Project Rythm</h2>
+   <h2   *ngIf="data.customerProjectRythm.id !== ''" mat-dialog-title>Update Project Rythm</h2>
+   <mat-dialog-content>
+      <form id="formNewProjectRythmUpdate" name="formNewProjectRythmUpdate"  #projectRythmUpdate="ngForm">
+         <mat-form-field >
+            <input matInput placeholder="Event" name="event" [value]="data.customerProjectRythm.event" [(ngModel)]="data.customerProjectRythm.event" ngModel><br>
+         </mat-form-field>
+         <br>
+         <mat-form-field>
+           <mat-select [(value)]="selected" [(ngModel)]="data.customerProjectRythm.frequency" placeholder="Frequency" name="frequency">
+             <mat-option *ngFor="let option of data.rythmFrequency" [value]="option">
+               {{ option }}
+             </mat-option>
+           </mat-select>
+         </mat-form-field>
+         <br>
+         <mat-form-field >
+            <input matInput placeholder="Who" name="whoRythm" [value]="data.customerProjectRythm.whoRythm" [(ngModel)]="data.customerProjectRythm.whoRythm" ngModel><br>
+         </mat-form-field>
+         <br>
+         <mat-form-field >
+            <input matInput placeholder="Where" name="whereRythm" [value]="data.customerProjectRythm.whereRythm" [(ngModel)]="data.customerProjectRythm.whereRythm" ngModel>
+         </mat-form-field>
+      </form>
+   </mat-dialog-content>
+   <mat-dialog-actions>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerProjectRythm *ngIf="data.customerProjectRythm.id !== ''">Update</button>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerProjectRythm *ngIf="data.customerProjectRythm.id === ''">Add</button>
+      <button mat-button mat-dialog-close="dialogDismissed" disableRipple="true" class="tos-button">Cancel</button>
+   </mat-dialog-actions>
+</div>

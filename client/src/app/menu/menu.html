@@ -1,0 +1,41 @@
+<mat-toolbar >
+  <a href="./index.html" class="tos-title-style">
+   <h2 class="title-xs">{{titleXS}}</h2>
+   <h2 class="title-gt-xs">{{title}}</h2>
+</a>
+<span class="example-spacer"></span>
+<div fxShow="true" fxHide.lt-md="true" class="tos-menu-buttons">
+  <a (click)="navigateHome()">Home</a>
+ <a (click)="navigateCustomers()">Customer</a>
+  <a (click)="navigateEmployeeHome()">Employee</a>
+  <a (click)="navigateAbout()">About</a>
+  <a (click)="logout()">Logout</a>
+ <!--  <button mat-button (click)="navigateHome()"  disableRipple="true">Home</button>
+   <button mat-button (click)="navigateEmployeeHome()">Employee</button>
+   <button mat-button (click)="navigateCustomers()">Customer</button>
+  <button mat-button (click)="navigateProfile()">DashBoard</button>
+   <button mat-button (click)="navigateAbout()">About</button>
+   <button mat-button (click)="logout()">Logout</button> -->
+</div>
+<div class="tos-xs-menu" fxShow="false" fxShow.lt-md="true" fxLayout="column">
+   <mat-menu #appMenu="matMenu" [overlapTrigger]="false">
+ <!--    <button mat-button (click)="navigateHome()">Home</button>
+   <button mat-button (click)="navigateEmployeeHome()">Employee</button>
+   <button mat-button (click)="navigateCustomers()">Customer</button>
+    <button mat-button (click)="navigateProfile()">DashBoard</button>
+   <button mat-button (click)="navigateAbout()">About</button>
+   <button mat-button (click)="logout()">Logout</button>-->
+   <a (click)="navigateHome()">Home</a>
+   <a (click)="navigateCustomers()">Customer</a>
+   <a (click)="navigateEmployeeHome()">Employee</a>
+   <a (click)="navigateAbout()">About</a>
+   <a (click)="logout()">Logout</a>
+   </mat-menu>
+
+   <i class="fa fa-navicon tos-menu-icon" aria-hidden="true" [matMenuTriggerFor]="appMenu"></i>
+
+
+</div>
+</mat-toolbar>
+
+<breadcrumb> </breadcrumb>

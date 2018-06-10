@@ -1,0 +1,36 @@
+<div *ngIf="data.customerGoal !== undefined" >
+   <h2 *ngIf="data.customerGoal.id === ''" mat-dialog-title>Create Goal</h2>
+   <h2   *ngIf="data.customerGoal.id !== ''" mat-dialog-title>Update Goal</h2>
+   <mat-dialog-content>
+      <form id="formNewGoalUpdate" name="formNewGoalUpdate"  #goalDataUpdate="ngForm">
+         <mat-form-field >
+            <input matInput placeholder="Description" name="description" [value]="data.customerGoal.description" [(ngModel)]="data.customerGoal.description" ><br>
+         </mat-form-field>
+         <br>
+         <mat-form-field>
+           <mat-select [(value)]="selected" [(ngModel)]="data.customerGoal.tenure" placeholder="Tenure" name="tenure">
+             <mat-option *ngFor="let option of data.goalTenures" [value]="option">
+               {{ option }}
+             </mat-option>
+           </mat-select>
+         </mat-form-field>
+         <br>
+         <mat-form-field >
+            <input matInput placeholder="Status" name="status" [value]="data.customerGoal.status" [(ngModel)]="data.customerGoal.status" >
+         </mat-form-field>
+         <br>
+         <mat-form-field >
+            <input matInput placeholder="Signed By" name="signedBy" [value]="data.customerGoal.signedBy" [(ngModel)]="data.customerGoal.signedBy" >
+         </mat-form-field>
+         <br>
+         <mat-form-field >
+            <textarea matInput placeholder="Details" name="details" [value]="data.customerGoal.details" [(ngModel)]="data.customerGoal.details" ngModel></textarea>
+         </mat-form-field>
+      </form>
+   </mat-dialog-content>
+   <mat-dialog-actions>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerGoal *ngIf="data.customerGoal.id !== ''">Update</button>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerGoal *ngIf="data.customerGoal.id === ''">Add</button>
+      <button mat-button mat-dialog-close="dialogDismissed" disableRipple="true" class="tos-button">Cancel</button>
+   </mat-dialog-actions>
+</div>

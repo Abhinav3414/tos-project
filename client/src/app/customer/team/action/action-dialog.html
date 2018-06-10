@@ -1,0 +1,33 @@
+<div *ngIf="data.customerAction!==undefined" >
+   <h2 *ngIf="data.customerAction.id === ''" mat-dialog-title>Create Action</h2>
+   <h2   *ngIf="data.customerAction.id !== ''" mat-dialog-title>Update Action</h2>
+   <mat-dialog-content>
+      <form id="formNewActionUpdate" name="formNewActionUpdate"  #actionUpdate="ngForm">
+        <mat-form-field *ngIf="data.customerAction.customerId != null && data.customerAction.ace5Id === null">
+          <mat-select [(value)]="selected" [(ngModel)]="data.customerAction.goalId" placeholder="Goal" name="goalId" >
+            <mat-option *ngFor="let goal of data.customerGoals" [value]="goal.id">
+              {{ goal.description }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <a *ngIf="data.customerAction.customerId != null"> <br> </a>
+         <mat-form-field >
+            <input matInput placeholder="Details" name="details" [value]="data.customerAction.details" [(ngModel)]="data.customerAction.details" ngModel><br>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Cause" name="cause" [value]="data.customerAction.cause" [(ngModel)]="data.customerAction.cause" ngModel>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Platform" name="platform" [value]="data.customerAction.platform" [(ngModel)]="data.customerAction.platform" ngModel><br>
+         </mat-form-field><br>
+         <mat-form-field >
+            <input matInput placeholder="Status" name="status" [value]="data.customerAction.status" [(ngModel)]="data.customerAction.status" ngModel>
+         </mat-form-field>
+      </form>
+   </mat-dialog-content>
+   <mat-dialog-actions>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerAction *ngIf="data.customerAction.id !== ''">Update</button>
+      <button mat-raised-button class="tos-primary-button" [mat-dialog-close]=data.customerAction *ngIf="data.customerAction.id === ''">Add</button>
+      <button mat-button mat-dialog-close="dialogDismissed" disableRipple="true" class="tos-button">Cancel</button>
+   </mat-dialog-actions>
+</div>
