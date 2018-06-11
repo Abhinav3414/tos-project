@@ -11,7 +11,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { RouterModule, Routes } from '@angular/router';
 
-import { PrimeModule } from './prime.module';
 import { CustomMaterialModule } from './custom-material.module';
 
 import { AppComponent } from './app.component';
@@ -95,7 +94,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    PrimeModule,
     CustomMaterialModule,
     FlexLayoutModule,
     FormsModule,

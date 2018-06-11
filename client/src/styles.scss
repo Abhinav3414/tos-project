@@ -8,28 +8,8 @@
 /*/
  ////////////////[ FONT ]*/
  @font-face {
-     font-family: Poppins-Regular;
-     src: url('./assets/fonts/poppins/Poppins-Regular.ttf');
-}
- @font-face {
-     font-family: Poppins-Medium;
-     src: url('./assets/fonts/poppins/Poppins-Medium.ttf');
-}
- @font-face {
-     font-family: Poppins-Bold;
-     src: url('./assets/fonts/poppins/Poppins-Bold.ttf');
-}
- @font-face {
-     font-family: Poppins-SemiBold;
-     src: url('./assets/fonts/poppins/Poppins-SemiBold.ttf');
-}
- @font-face {
-     font-family: Montserrat-Regular;
-     src: url('./assets/fonts/montserrat/Montserrat-Regular.ttf');
-}
- @font-face {
-     font-family: Custom-OpenSans-Regular;
-     src: url('./assets/fonts/open_sans/OpenSans-Regular.ttf');
+    // font-family: Poppins-Regular;
+  //   src: url('./assets/fonts/poppins/Poppins-Regular.ttf');
 }
  html {
      overflow-y:scroll;
@@ -100,7 +80,7 @@ login mat-card {
      min-height: 81vh;
 }
  .tos-menu-style {
-     min-height: 15vh;
+     min-height: 116px;
 }
 .tos-entity-name {
   font: 400 18px/20px Roboto,"Helvetica Neue",sans-serif;
@@ -116,14 +96,49 @@ login mat-card {
      margin-bottom: 2em;
 }
  footer {
-     height: 7vh;
-     bottom:0;
-     width:100%;
      color: #ffffff;
-     background: #191919;
-     font-size: 14px;
-     margin-top: 1em;
+     background: #6d6d6d;;
+     font-size: 12px;
+     margin-top: -2em;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     padding: 1rem;
+
+.tos-footer {
+
+  display: flex;
+  p {
+    font-family: 'Montserrat', sans-serif;
+ letter-spacing: .5px;
+ margin-top: auto;
+     margin-bottom: auto;
+
+    a:link, a:visited, a:hover, a:active {
+       color: #ffffff;
+     }
+  }
+
+  .social-icons {
+    background: #615757;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  padding: 7px;
+
+
+
+  }
+
+  .social-icons:hover {
+    background: #377992;
+  }
 }
+
+}
+
+
  .mat-form-field {
      width: 200px;
 }
@@ -157,14 +172,6 @@ register .tos-primary-button.mat-raised-button,
 }
  .mat-dialog-actions .mat-raised-button+.mat-button {
      margin: 0 !important;
-}
- footer p {
-     font-family: 'Montserrat', sans-serif;
-     font-weight: 400;
-     font-size: 14px;
-     line-height: 1.8;
-     letter-spacing: .5px;
-     padding: .2em 5vw;
 }
  profile, about, team-view, customer-view, customer-main, employee-view, employee-main {
      display: flex;
@@ -429,10 +436,8 @@ register mat-form-field,
 }
  .tos-router-container {
      display: flex;
-     //padding: 0 30px;
+     padding-bottom: 2em;
      position: relative;
-     // background-color: #eee;
-     //height: 100%;
 }
  register .mat-tab-label,
  login .mat-tab-label {
