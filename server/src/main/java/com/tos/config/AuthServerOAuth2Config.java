@@ -9,6 +9,15 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
+/**
+ * This class is Authorization server for OAuth2 security
+ * sends Authorization code to clients which are registered with their cliend id and secret
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter {

@@ -3,6 +3,15 @@ package com.tos.utility;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class creates Java objects from property files present in src/main/resources folder
+ * 
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 @Component
 public class ApplicationProperties {
 

@@ -17,16 +17,16 @@ public class Role {
 	Role() {
 	}
 
-	public Role(String name) {
-		this.name = name;
+	public Role(Roles admin) {
+		this.name = admin.toString();
 	}
 
 	public String getName() {
-		return name;
+		return name.toString();
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(Roles name) {
+		this.name = name.toString();
 	}
 
 }

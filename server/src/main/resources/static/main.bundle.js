@@ -46,7 +46,7 @@ var AuthInterceptor = /** @class */ (function () {
         return next.handle(authreq);
     };
     AuthInterceptor = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_localStorage_service__["a" /* LocalStorageService */]])
     ], AuthInterceptor);
     return AuthInterceptor;
@@ -78,14 +78,14 @@ var AboutComponent = /** @class */ (function () {
     function AboutComponent() {
     }
     AboutComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'about',
             template: __webpack_require__("./src/app/about/about.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
@@ -152,7 +152,7 @@ var Ace5Component = /** @class */ (function () {
     Ace5Component.prototype.ngOnInit = function () {
         var _this = this;
         this.firstFormGroup = this._formBuilder.group({
-            firstCtrl: ['', __WEBPACK_IMPORTED_MODULE_8__angular_forms__["Validators"].required]
+            firstCtrl: ['', __WEBPACK_IMPORTED_MODULE_8__angular_forms__["k" /* Validators */].required]
         });
         this.secondFormGroup = this._formBuilder.group({
             secondCtrl: ''
@@ -232,6 +232,7 @@ var Ace5Component = /** @class */ (function () {
         }, function (err) { return console.log(entityName + " could not be updated :" + err); });
     };
     Ace5Component.prototype.delelteEntity = function (entityName, id, entityArray) {
+        console.log(entityName);
         this.dataService.delelteEntity(entityName, id)
             .then(function (resCustomerData) {
             entityArray.splice(entityArray.findIndex(function (i) {
@@ -240,20 +241,20 @@ var Ace5Component = /** @class */ (function () {
         }, function (err) { return console.log(entityName + " could not be deleted :" + err); });
     };
     Ace5Component = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'ace5',
             template: __webpack_require__("./src/app/ace5/ace5.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_5__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"],
-            __WEBPACK_IMPORTED_MODULE_4__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_8__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_4__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_8__angular_forms__["b" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialog */]])
     ], Ace5Component);
     return Ace5Component;
 }());
@@ -265,7 +266,7 @@ var Ace5Component = /** @class */ (function () {
 /***/ "./src/app/ace5/ace5.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"tos-entity-name\" >Ace5 Process</h3>\n<!--\n   <button mat-raised-button (click)=\"isOptional = !isOptional\">\n     {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}\n   </button>\n   -->\n<mat-horizontal-stepper [linear]=\"true\" #stepper *ngIf=\"ace5 !== null && customer !== undefined\" @fade>\n<mat-step [stepControl]=\"firstFormGroup\">\n   <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Ace5 Phase</ng-template>\n      <mat-form-field>\n         <input matInput placeholder=\"Product Owner\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"customerId\" name=\"customerId\" [value]=\"ace5.customerId\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"ace5.customerId\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"intialDiscussionDate\" name=\"intialDiscussionDate\" [value]=\"ace5.intialDiscussionDate\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"ace5.intialDiscussionDate\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"processTools\" name=\"processTools\" [value]=\"customer.processTools\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.processTools\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"solutionProduct\" name=\"solutionProduct\" [value]=\"customer.solutionProduct\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.solutionProduct\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"databaseUsed\" name=\"databaseUsed\" [value]=\"customer.databaseUsed\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.databaseUsed\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"operatingEnvironment\" name=\"operatingEnvironment\" [value]=\"customer.operatingEnvironment\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.operatingEnvironment\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"remoteMachineDetails\" name=\"remoteMachineDetails\" [value]=\"customer.remoteMachineDetails\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.remoteMachineDetails\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"process\" name=\"vpnDetails\" [value]=\"customer.vpnDetails\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.vpnDetails\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"communicator\" name=\"communicator\" [value]=\"customer.communicator\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.communicator\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"communicator\" name=\"skillsReuired\" [value]=\"customer.skillsReuired\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.skillsReuired\" ngModel>\n      </mat-form-field>\n<hr>\n       <br>\n      <mat-accordion [multi]=\"true\" @fade>\n         <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\" [expanded]=\"true\" >\n         <mat-expansion-panel-header>\n            <mat-panel-title>\n               <h3>Actions</h3>\n            </mat-panel-title>\n            <mat-panel-description>\n               <!--Currently I am {{panelOpenState ? 'open' : 'closed'}}-->\n            </mat-panel-description>\n         </mat-expansion-panel-header>\n         <div class=\" tos-button-right\">\n            <span  (click)=\"openDialog('actions')\" class=\"tos-add-button\">+</span>\n         </div>\n         <div class=\"container\" fxlayout=\"row\" fxLayout.xs=\"column\" fxLayoutWrap fxLayoutGap=\"1%\" fxLayoutAlign=\"flex-start\">\n            <div fxFlex=\"30%\" *ngFor = \"let action of customerActions\">\n               <mat-card class=\"example-card\" >\n                  <mat-card-header>\n                     <mat-card-title>\n                        <h3><span >{{action.details}}</span></h3>\n                     </mat-card-title>\n                     <mat-card-subtitle></mat-card-subtitle>\n                  </mat-card-header>\n                  <mat-card-content>\n                     cause: {{action.cause}} <br>\n                     platform: {{action.platform}}<br>\n                     status: {{action.status}}\n                  </mat-card-content>\n                  <mat-card-actions>\n                     <span (click)=\"openUpdateDialog('actions',action.id)\" style=\"cursor:pointer;color:grey\">\n                        <mat-icon  >create</mat-icon>\n                     </span>\n                     &emsp;\n                     <span (click)=\"delelteEntity('actions',action.id,ace5.actions)\" style=\"cursor:pointer; color:grey\">\n                        <mat-icon  >delete</mat-icon>\n                     </span>\n                  </mat-card-actions>\n               </mat-card>\n            </div>\n            <div *ngIf=\"customerActions.length===0\" class=\"tos-content-color\">No Actions Defined </div>\n         </div>\n         </mat-expansion-panel>\n       </mat-accordion>\n\n   <br>   <br>\n       <div>\n         <button mat-button matStepperNext>Next</button>\n      </div>\n   </form>\n\n</mat-step>\n<mat-step [stepControl]=\"secondFormGroup\" [optional]=\"isOptional\">\n<form [formGroup]=\"secondFormGroup\">\n   <ng-template matStepLabel>Acquire Phase</ng-template>\n   <mat-form-field>\n      <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n   </mat-form-field>\n   <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button matStepperNext>Next</button>\n   </div>\n</form>\n</mat-step>\n<mat-step [stepControl]=\"thirdFormGroup\" [optional]=\"isOptional\">\n<form [formGroup]=\"thirdFormGroup\">\n   <ng-template matStepLabel>Assimilate Phase</ng-template>\n   <mat-form-field>\n      <input matInput placeholder=\"Assimilate\" formControlName=\"thirdCtrl\" required>\n   </mat-form-field>\n   <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button matStepperNext>Next</button>\n   </div>\n</form>\n</mat-step>\n<mat-step>\n   <ng-template matStepLabel>Done</ng-template>\n   You are now done.\n   <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\n   </div>\n</mat-step>\n</mat-horizontal-stepper>\n"
+module.exports = "<h3 class=\"tos-entity-name\" >Ace5 Process</h3>\n<!--\n   <button mat-raised-button (click)=\"isOptional = !isOptional\">\n     {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}\n   </button>\n   -->\n<mat-horizontal-stepper [linear]=\"true\" #stepper *ngIf=\"ace5 !== null && customer !== undefined\" @fade>\n<mat-step [stepControl]=\"firstFormGroup\">\n   <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Ace5 Phase</ng-template>\n      <mat-form-field>\n         <input matInput placeholder=\"Product Owner\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"customerId\" name=\"customerId\" [value]=\"ace5.customerId\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"ace5.customerId\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"intialDiscussionDate\" name=\"intialDiscussionDate\" [value]=\"ace5.intialDiscussionDate\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"ace5.intialDiscussionDate\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"processTools\" name=\"processTools\" [value]=\"customer.processTools\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.processTools\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"solutionProduct\" name=\"solutionProduct\" [value]=\"customer.solutionProduct\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.solutionProduct\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"databaseUsed\" name=\"databaseUsed\" [value]=\"customer.databaseUsed\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.databaseUsed\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"operatingEnvironment\" name=\"operatingEnvironment\" [value]=\"customer.operatingEnvironment\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.operatingEnvironment\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"remoteMachineDetails\" name=\"remoteMachineDetails\" [value]=\"customer.remoteMachineDetails\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.remoteMachineDetails\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"process\" name=\"vpnDetails\" [value]=\"customer.vpnDetails\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.vpnDetails\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"communicator\" name=\"communicator\" [value]=\"customer.communicator\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.communicator\" ngModel>\n      </mat-form-field>\n      <mat-form-field >\n         <input matInput placeholder=\"communicator\" name=\"skillsReuired\" [value]=\"customer.skillsReuired\" [ngModelOptions]=\"{standalone: true}\"  [(ngModel)]=\"customer.skillsReuired\" ngModel>\n      </mat-form-field>\n<hr>\n       <br>\n      <mat-accordion [multi]=\"true\" @fade>\n         <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\" [expanded]=\"true\" >\n         <mat-expansion-panel-header>\n            <mat-panel-title>\n               <h3>Actions</h3>\n            </mat-panel-title>\n            <mat-panel-description>\n               <!--Currently I am {{panelOpenState ? 'open' : 'closed'}}-->\n            </mat-panel-description>\n         </mat-expansion-panel-header>\n         <div class=\" tos-button-right\">\n            <span  (click)=\"openDialog('actions')\" class=\"tos-add-button\">+</span>\n         </div>\n         <div class=\"container\" fxlayout=\"row\" fxLayout.xs=\"column\" fxLayoutWrap fxLayoutGap=\"1%\" fxLayoutAlign=\"flex-start\">\n            <div fxFlex=\"30%\" *ngFor = \"let action of customerActions\">\n               <mat-card class=\"example-card\" >\n                  <mat-card-header>\n                     <mat-card-title>\n                        <h3><span >{{action.details}}</span></h3>\n                     </mat-card-title>\n                     <mat-card-subtitle></mat-card-subtitle>\n                  </mat-card-header>\n                  <mat-card-content>\n                     cause: {{action.cause}} <br>\n                     platform: {{action.platform}}<br>\n                     status: {{action.status}}\n                  </mat-card-content>\n                  <mat-card-actions>\n                     <span (click)=\"openUpdateDialog('actions',action.id)\" style=\"cursor:pointer;color:grey\">\n                        <mat-icon  >create</mat-icon>\n                     </span>\n                     &emsp;\n                     <span (click)=\"delelteEntity('actions',action.id,customerActions)\" style=\"cursor:pointer; color:grey\">\n                        <mat-icon  >delete</mat-icon>\n                     </span>\n                  </mat-card-actions>\n               </mat-card>\n            </div>\n            <div *ngIf=\"customerActions.length===0\" class=\"tos-content-color\">No Actions Defined </div>\n         </div>\n         </mat-expansion-panel>\n       </mat-accordion>\n\n   <br>   <br>\n       <div>\n         <button mat-button matStepperNext>Next</button>\n      </div>\n   </form>\n\n</mat-step>\n<mat-step [stepControl]=\"secondFormGroup\" [optional]=\"isOptional\">\n<form [formGroup]=\"secondFormGroup\">\n   <ng-template matStepLabel>Acquire Phase</ng-template>\n   <mat-form-field>\n      <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n   </mat-form-field>\n   <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button matStepperNext>Next</button>\n   </div>\n</form>\n</mat-step>\n<mat-step [stepControl]=\"thirdFormGroup\" [optional]=\"isOptional\">\n<form [formGroup]=\"thirdFormGroup\">\n   <ng-template matStepLabel>Assimilate Phase</ng-template>\n   <mat-form-field>\n      <input matInput placeholder=\"Assimilate\" formControlName=\"thirdCtrl\" required>\n   </mat-form-field>\n   <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button matStepperNext>Next</button>\n   </div>\n</form>\n</mat-step>\n<mat-step>\n   <ng-template matStepLabel>Done</ng-template>\n   You are now done.\n   <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\n   </div>\n</mat-step>\n</mat-horizontal-stepper>\n"
 
 /***/ }),
 
@@ -349,9 +350,9 @@ var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["RouterModule"].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["RouterModule"]]
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -371,7 +372,7 @@ module.exports = "body > app-root > div > h2\n {\n  font-family: sans-serif;\n  
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--This is app component template.-->\n\n\n  <!--  <login> </login> -->\n  <content> </content>\n  <!--<footer></footer> -->\n\n<!--\n<button mat-mini-fab> <mat-icon ><i class=\"material-icons\">home</i></mat-icon> </button>\n-->\n"
+module.exports = "<!--This is app component template.-->\n<!--  <login> </login> -->\n<content> </content>\n<!--\n   <button mat-mini-fab> <mat-icon ><i class=\"material-icons\">home</i></mat-icon> </button>\n   -->\n"
 
 /***/ }),
 
@@ -394,7 +395,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.ngOnInit = function () {
     };
     AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
@@ -420,45 +421,44 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_flex_layout__ = __webpack_require__("./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__prime_module__ = __webpack_require__("./src/app/prime.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__custom_material_module__ = __webpack_require__("./src/app/custom-material.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__register_register_component__ = __webpack_require__("./src/app/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__content_content_component__ = __webpack_require__("./src/app/content/content.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__menu_menu_component__ = __webpack_require__("./src/app/menu/menu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__about_about_component__ = __webpack_require__("./src/app/about/about.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__menu_breadcrumb_component__ = __webpack_require__("./src/app/menu/breadcrumb.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__ = __webpack_require__("./src/app/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__employee_employee_main_component__ = __webpack_require__("./src/app/employee/employee-main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__employee_employee_view_component__ = __webpack_require__("./src/app/employee/employee-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__employee_employee_dialog_component__ = __webpack_require__("./src/app/employee/employee-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__customer_customer_main_component__ = __webpack_require__("./src/app/customer/customer-main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__customer_customer_view_component__ = __webpack_require__("./src/app/customer/customer-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__customer_customer_dialog_component__ = __webpack_require__("./src/app/customer/customer-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ace5_ace5_component__ = __webpack_require__("./src/app/ace5/ace5.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__customer_goal_goal_dialog_component__ = __webpack_require__("./src/app/customer/goal/goal-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__customer_team_team_dialog_component__ = __webpack_require__("./src/app/customer/team/team-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__customer_stakeholder_stakeholder_dialog_component__ = __webpack_require__("./src/app/customer/stakeholder/stakeholder-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__customer_team_team_view_component__ = __webpack_require__("./src/app/customer/team/team-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__customer_team_projectrythm_projectrythm_dialog_component__ = __webpack_require__("./src/app/customer/team/projectrythm/projectrythm-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__customer_team_teammember_teammember_dialog_component__ = __webpack_require__("./src/app/customer/team/teammember/teammember-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__customer_travel_travel_dialog_component__ = __webpack_require__("./src/app/customer/travel/travel-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__employee_skill_skill_dialog_component__ = __webpack_require__("./src/app/employee/skill/skill-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__employee_certification_certification_dialog_component__ = __webpack_require__("./src/app/employee/certification/certification-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__employee_improvementarea_improvementarea_dialog_component__ = __webpack_require__("./src/app/employee/improvementarea/improvementarea-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__employee_feedback_feedback_dialog_component__ = __webpack_require__("./src/app/employee/feedback/feedback-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__employee_training_training_dialog_component__ = __webpack_require__("./src/app/employee/training/training-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__customer_team_action_action_dialog_component__ = __webpack_require__("./src/app/customer/team/action/action-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__services_data_service__ = __webpack_require__("./src/app/services/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__services_utility_service__ = __webpack_require__("./src/app/services/utility.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__services_localStorage_service__ = __webpack_require__("./src/app/services/localStorage.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__services_url_service__ = __webpack_require__("./src/app/services/url.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__Interceptors_auth_interceptor__ = __webpack_require__("./src/app/Interceptors/auth.interceptor.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_angular_bootstrap_md__ = __webpack_require__("./node_modules/angular-bootstrap-md/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__custom_material_module__ = __webpack_require__("./src/app/custom-material.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__register_register_component__ = __webpack_require__("./src/app/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__content_content_component__ = __webpack_require__("./src/app/content/content.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__menu_menu_component__ = __webpack_require__("./src/app/menu/menu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__about_about_component__ = __webpack_require__("./src/app/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__menu_breadcrumb_component__ = __webpack_require__("./src/app/menu/breadcrumb.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__profile_profile_component__ = __webpack_require__("./src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__employee_employee_main_component__ = __webpack_require__("./src/app/employee/employee-main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__employee_employee_view_component__ = __webpack_require__("./src/app/employee/employee-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__employee_employee_dialog_component__ = __webpack_require__("./src/app/employee/employee-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__customer_customer_main_component__ = __webpack_require__("./src/app/customer/customer-main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__customer_customer_view_component__ = __webpack_require__("./src/app/customer/customer-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__customer_customer_dialog_component__ = __webpack_require__("./src/app/customer/customer-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ace5_ace5_component__ = __webpack_require__("./src/app/ace5/ace5.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__customer_goal_goal_dialog_component__ = __webpack_require__("./src/app/customer/goal/goal-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__customer_team_team_dialog_component__ = __webpack_require__("./src/app/customer/team/team-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__customer_stakeholder_stakeholder_dialog_component__ = __webpack_require__("./src/app/customer/stakeholder/stakeholder-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__customer_team_team_view_component__ = __webpack_require__("./src/app/customer/team/team-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__customer_team_projectrythm_projectrythm_dialog_component__ = __webpack_require__("./src/app/customer/team/projectrythm/projectrythm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__customer_team_teammember_teammember_dialog_component__ = __webpack_require__("./src/app/customer/team/teammember/teammember-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__customer_travel_travel_dialog_component__ = __webpack_require__("./src/app/customer/travel/travel-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__employee_skill_skill_dialog_component__ = __webpack_require__("./src/app/employee/skill/skill-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__employee_certification_certification_dialog_component__ = __webpack_require__("./src/app/employee/certification/certification-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__employee_improvementarea_improvementarea_dialog_component__ = __webpack_require__("./src/app/employee/improvementarea/improvementarea-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__employee_feedback_feedback_dialog_component__ = __webpack_require__("./src/app/employee/feedback/feedback-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__employee_training_training_dialog_component__ = __webpack_require__("./src/app/employee/training/training-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__customer_team_action_action_dialog_component__ = __webpack_require__("./src/app/customer/team/action/action-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__services_data_service__ = __webpack_require__("./src/app/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__services_utility_service__ = __webpack_require__("./src/app/services/utility.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__services_localStorage_service__ = __webpack_require__("./src/app/services/localStorage.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__services_url_service__ = __webpack_require__("./src/app/services/url.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__Interceptors_auth_interceptor__ = __webpack_require__("./src/app/Interceptors/auth.interceptor.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_angular_bootstrap_md__ = __webpack_require__("./node_modules/angular-bootstrap-md/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -468,7 +468,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -520,69 +519,68 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__register_register_component__["a" /* RegisterComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__employee_employee_main_component__["a" /* EmployeeMainComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__about_about_component__["a" /* AboutComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__menu_menu_component__["a" /* MenuComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__customer_customer_main_component__["a" /* CustomerMainComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__employee_employee_view_component__["a" /* EmployeeViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__customer_customer_view_component__["a" /* CustomerViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__customer_team_team_view_component__["a" /* TeamViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__employee_employee_dialog_component__["a" /* EmployeeDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__customer_customer_dialog_component__["a" /* CustomerDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__customer_stakeholder_stakeholder_dialog_component__["a" /* StakeholderDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__customer_goal_goal_dialog_component__["a" /* GoalDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__customer_team_team_dialog_component__["a" /* TeamDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__customer_team_projectrythm_projectrythm_dialog_component__["a" /* ProjectRythmDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__customer_team_action_action_dialog_component__["a" /* ActionDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__customer_team_teammember_teammember_dialog_component__["a" /* TeamMemberDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_33__customer_travel_travel_dialog_component__["a" /* TravelDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__employee_skill_skill_dialog_component__["a" /* SkillDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__employee_certification_certification_dialog_component__["a" /* CertificationDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__employee_training_training_dialog_component__["a" /* TrainingDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_36__employee_improvementarea_improvementarea_dialog_component__["a" /* ImprovementAreaDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_37__employee_feedback_feedback_dialog_component__["a" /* FeedbackDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__content_content_component__["a" /* ContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__menu_breadcrumb_component__["a" /* BreadcrumbComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__ace5_ace5_component__["a" /* Ace5Component */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__employee_employee_main_component__["a" /* EmployeeMainComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__about_about_component__["a" /* AboutComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__menu_menu_component__["a" /* MenuComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__customer_customer_main_component__["a" /* CustomerMainComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__employee_employee_view_component__["a" /* EmployeeViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__customer_customer_view_component__["a" /* CustomerViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__customer_team_team_view_component__["a" /* TeamViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__employee_employee_dialog_component__["a" /* EmployeeDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__customer_customer_dialog_component__["a" /* CustomerDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__customer_stakeholder_stakeholder_dialog_component__["a" /* StakeholderDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__customer_goal_goal_dialog_component__["a" /* GoalDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__customer_team_team_dialog_component__["a" /* TeamDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__customer_team_projectrythm_projectrythm_dialog_component__["a" /* ProjectRythmDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__customer_team_action_action_dialog_component__["a" /* ActionDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__customer_team_teammember_teammember_dialog_component__["a" /* TeamMemberDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__customer_travel_travel_dialog_component__["a" /* TravelDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_33__employee_skill_skill_dialog_component__["a" /* SkillDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__employee_certification_certification_dialog_component__["a" /* CertificationDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__employee_training_training_dialog_component__["a" /* TrainingDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__employee_improvementarea_improvementarea_dialog_component__["a" /* ImprovementAreaDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__employee_feedback_feedback_dialog_component__["a" /* FeedbackDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__content_content_component__["a" /* ContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__menu_breadcrumb_component__["a" /* BreadcrumbComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__ace5_ace5_component__["a" /* Ace5Component */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["BrowserModule"],
+                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_8__prime_module__["a" /* PrimeModule */],
-                __WEBPACK_IMPORTED_MODULE_9__custom_material_module__["a" /* CustomMaterialModule */],
+                __WEBPACK_IMPORTED_MODULE_8__custom_material_module__["a" /* CustomMaterialModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_flex_layout__["a" /* FlexLayoutModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormsModule"],
+                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["e" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["ReactiveFormsModule"],
+                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["j" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_46_angular_bootstrap_md__["a" /* MDBBootstrapModule */].forRoot()
+                __WEBPACK_IMPORTED_MODULE_45_angular_bootstrap_md__["a" /* MDBBootstrapModule */].forRoot()
             ],
-            schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["NO_ERRORS_SCHEMA"]],
+            schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NO_ERRORS_SCHEMA */]],
             exports: [],
-            providers: [__WEBPACK_IMPORTED_MODULE_40__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_41__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_42__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_43__services_localStorage_service__["a" /* LocalStorageService */], __WEBPACK_IMPORTED_MODULE_44__services_url_service__["a" /* UrlService */],
+            providers: [__WEBPACK_IMPORTED_MODULE_39__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_40__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_41__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_42__services_localStorage_service__["a" /* LocalStorageService */], __WEBPACK_IMPORTED_MODULE_43__services_url_service__["a" /* UrlService */],
                 {
                     provide: __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HTTP_INTERCEPTORS */],
-                    useClass: __WEBPACK_IMPORTED_MODULE_45__Interceptors_auth_interceptor__["a" /* AuthInterceptor */],
+                    useClass: __WEBPACK_IMPORTED_MODULE_44__Interceptors_auth_interceptor__["a" /* AuthInterceptor */],
                     multi: true
                 }
                 /*{ provide: LocationStrategy, useClass: HashLocationStrategy },*/
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_22__employee_employee_dialog_component__["a" /* EmployeeDialogComponent */], __WEBPACK_IMPORTED_MODULE_25__customer_customer_dialog_component__["a" /* CustomerDialogComponent */], __WEBPACK_IMPORTED_MODULE_29__customer_stakeholder_stakeholder_dialog_component__["a" /* StakeholderDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__customer_goal_goal_dialog_component__["a" /* GoalDialogComponent */], __WEBPACK_IMPORTED_MODULE_28__customer_team_team_dialog_component__["a" /* TeamDialogComponent */], __WEBPACK_IMPORTED_MODULE_31__customer_team_projectrythm_projectrythm_dialog_component__["a" /* ProjectRythmDialogComponent */], __WEBPACK_IMPORTED_MODULE_39__customer_team_action_action_dialog_component__["a" /* ActionDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__customer_team_teammember_teammember_dialog_component__["a" /* TeamMemberDialogComponent */], __WEBPACK_IMPORTED_MODULE_33__customer_travel_travel_dialog_component__["a" /* TravelDialogComponent */], __WEBPACK_IMPORTED_MODULE_34__employee_skill_skill_dialog_component__["a" /* SkillDialogComponent */], __WEBPACK_IMPORTED_MODULE_35__employee_certification_certification_dialog_component__["a" /* CertificationDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__employee_training_training_dialog_component__["a" /* TrainingDialogComponent */], __WEBPACK_IMPORTED_MODULE_36__employee_improvementarea_improvementarea_dialog_component__["a" /* ImprovementAreaDialogComponent */], __WEBPACK_IMPORTED_MODULE_37__employee_feedback_feedback_dialog_component__["a" /* FeedbackDialogComponent */]
+                __WEBPACK_IMPORTED_MODULE_21__employee_employee_dialog_component__["a" /* EmployeeDialogComponent */], __WEBPACK_IMPORTED_MODULE_24__customer_customer_dialog_component__["a" /* CustomerDialogComponent */], __WEBPACK_IMPORTED_MODULE_28__customer_stakeholder_stakeholder_dialog_component__["a" /* StakeholderDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__customer_goal_goal_dialog_component__["a" /* GoalDialogComponent */], __WEBPACK_IMPORTED_MODULE_27__customer_team_team_dialog_component__["a" /* TeamDialogComponent */], __WEBPACK_IMPORTED_MODULE_30__customer_team_projectrythm_projectrythm_dialog_component__["a" /* ProjectRythmDialogComponent */], __WEBPACK_IMPORTED_MODULE_38__customer_team_action_action_dialog_component__["a" /* ActionDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__customer_team_teammember_teammember_dialog_component__["a" /* TeamMemberDialogComponent */], __WEBPACK_IMPORTED_MODULE_32__customer_travel_travel_dialog_component__["a" /* TravelDialogComponent */], __WEBPACK_IMPORTED_MODULE_33__employee_skill_skill_dialog_component__["a" /* SkillDialogComponent */], __WEBPACK_IMPORTED_MODULE_34__employee_certification_certification_dialog_component__["a" /* CertificationDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__employee_training_training_dialog_component__["a" /* TrainingDialogComponent */], __WEBPACK_IMPORTED_MODULE_35__employee_improvementarea_improvementarea_dialog_component__["a" /* ImprovementAreaDialogComponent */], __WEBPACK_IMPORTED_MODULE_36__employee_feedback_feedback_dialog_component__["a" /* FeedbackDialogComponent */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
         }),
         __metadata("design:paramtypes", [])
     ], AppModule);
@@ -634,11 +632,11 @@ var ContentComponent = /** @class */ (function () {
             this.tokenSub = local.access_token;
     };
     ContentComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'content',
             template: __webpack_require__("./src/app/content/content.html"),
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"], __WEBPACK_IMPORTED_MODULE_2__services_localStorage_service__["a" /* LocalStorageService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__services_localStorage_service__["a" /* LocalStorageService */],
             __WEBPACK_IMPORTED_MODULE_3__services_utility_service__["a" /* UtilityService */]])
     ], ContentComponent);
     return ContentComponent;
@@ -651,7 +649,7 @@ var ContentComponent = /** @class */ (function () {
 /***/ "./src/app/content/content.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tos-menu-style\">\r\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n   <div fxFlex=\"100%\" >\r\n      <menu *ngIf=\"tokenSub.length > 0 \"></menu>\r\n   </div>\r\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n</div>\r\n\r\n<div class=\"tos-body-style\">\r\n<div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n<div fxFlex=\"100%\" >\r\n   <div id=\"content\" class=\"tos-router-container\">\r\n      <router-outlet ></router-outlet>\r\n   </div>\r\n</div>\r\n<div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n<div>\r\n"
+module.exports = "<div class=\"tos-menu-style\">\r\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n   <div fxFlex=\"100%\" >\r\n      <menu *ngIf=\"tokenSub.length > 0 \"></menu>\r\n   </div>\r\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n</div>\r\n<div class=\"tos-body-style\">\r\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n   <div fxFlex=\"100%\" >\r\n      <div id=\"content\" class=\"tos-router-container\">\r\n         <router-outlet ></router-outlet>\r\n      </div>\r\n   </div>\r\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\r\n</div>\r\n<div class=\"tos-footer-style\">\r\n   <footer></footer>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -704,7 +702,7 @@ var CustomMaterialModule = /** @class */ (function () {
     function CustomMaterialModule() {
     }
     CustomMaterialModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material_toolbar__["a" /* MatToolbarModule */], __WEBPACK_IMPORTED_MODULE_4__angular_material_card__["a" /* MatCardModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material_input__["b" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_3__angular_material_icon__["a" /* MatIconModule */], __WEBPACK_IMPORTED_MODULE_13__angular_material_checkbox__["a" /* MatCheckboxModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_material_menu__["a" /* MatMenuModule */], __WEBPACK_IMPORTED_MODULE_7__angular_material_form_field__["c" /* MatFormFieldModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_8__angular_material_expansion__["a" /* MatExpansionModule */], __WEBPACK_IMPORTED_MODULE_9__angular_material_autocomplete__["a" /* MatAutocompleteModule */], __WEBPACK_IMPORTED_MODULE_10__angular_material_select__["a" /* MatSelectModule */],
                 __WEBPACK_IMPORTED_MODULE_11__angular_material_datepicker__["a" /* MatDatepickerModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatNativeDateModule */], __WEBPACK_IMPORTED_MODULE_12__angular_material_tabs__["a" /* MatTabsModule */], __WEBPACK_IMPORTED_MODULE_14__angular_material_stepper__["a" /* MatStepperModule */], __WEBPACK_IMPORTED_MODULE_15__angular_material_progress_spinner__["a" /* MatProgressSpinnerModule */]],
@@ -749,11 +747,11 @@ var CustomerDialogComponent = /** @class */ (function () {
     CustomerDialogComponent.prototype.ngOnInit = function () {
     };
     CustomerDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'customer-dialog',
             template: __webpack_require__("./src/app/customer/customer-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], CustomerDialogComponent);
     return CustomerDialogComponent;
@@ -815,7 +813,7 @@ var CustomerMainComponent = /** @class */ (function () {
         this.utilityService = utilityService;
         this.customers = [];
         this.customer = new __WEBPACK_IMPORTED_MODULE_6__customer__["a" /* Customer */]();
-        this.myControl = new __WEBPACK_IMPORTED_MODULE_8__angular_forms__["FormControl"]();
+        this.myControl = new __WEBPACK_IMPORTED_MODULE_8__angular_forms__["c" /* FormControl */]();
         this.countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda",
             "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh",
             "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina",
@@ -919,19 +917,19 @@ var CustomerMainComponent = /** @class */ (function () {
         return this.utilityService.checkEntity(entity);
     };
     CustomerMainComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'customer-main',
             template: __webpack_require__("./src/app/customer/customer-main.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_3__services_utility_service__["a" /* UtilityService */]])
     ], CustomerMainComponent);
     return CustomerMainComponent;
@@ -1105,7 +1103,7 @@ var CustomerViewComponent = /** @class */ (function () {
                 _this.mainStakeHolderId = resCustomerData["id"];
             }
             entityArray.push(resCustomerData);
-            entityName = ('stakeholders') ? 'stakeHolders' : entityName;
+            entityName = (entityName === 'stakeholders') ? 'stakeHolders' : entityName;
             _this.customer[entityName].push(resCustomerData);
         }, function (err) { return console.log(entityName + " could not be added :" + err); });
     };
@@ -1163,7 +1161,7 @@ var CustomerViewComponent = /** @class */ (function () {
             .then(function (resCustomerData) {
             var index = entityArray.findIndex(function (e) { return e.id === entity.id; });
             entityArray[index] = entity;
-            entityName = ('stakeholders') ? 'stakeHolders' : entityName;
+            entityName = (entityName === 'stakeholders') ? 'stakeHolders' : entityName;
             var indexOfCustomer = _this.customer[entityName].findIndex(function (e) { return e.id === entity.id; });
             _this.customer[entityName][indexOfCustomer] = entity;
         }, function (err) { return console.log(entityName + " could not be updated :" + err); });
@@ -1217,7 +1215,7 @@ var CustomerViewComponent = /** @class */ (function () {
                 entityArray.splice(entityArray.findIndex(function (i) {
                     return i.id === id;
                 }), 1);
-                entityName = ('stakeholders') ? 'stakeHolders' : entityName;
+                entityName = (entityName === 'stakeholders') ? 'stakeHolders' : entityName;
                 _this.customer[entityName].splice(_this.customer[entityName].findIndex(function (i) {
                     return i.id === id;
                 }), 1);
@@ -1228,19 +1226,19 @@ var CustomerViewComponent = /** @class */ (function () {
         }
     };
     CustomerViewComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'customer-view',
             template: __webpack_require__("./src/app/customer/customer-view.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_16__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_4__services_utility_service__["a" /* UtilityService */]])
     ], CustomerViewComponent);
     return CustomerViewComponent;
@@ -1326,11 +1324,11 @@ var GoalDialogComponent = /** @class */ (function () {
     GoalDialogComponent.prototype.ngOnInit = function () {
     };
     GoalDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'goal-dialog',
             template: __webpack_require__("./src/app/customer/goal/goal-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], GoalDialogComponent);
     return GoalDialogComponent;
@@ -1401,11 +1399,11 @@ var StakeholderDialogComponent = /** @class */ (function () {
     StakeholderDialogComponent.prototype.ngOnInit = function () {
     };
     StakeholderDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'stakeholder-dialog',
             template: __webpack_require__("./src/app/customer/stakeholder/stakeholder-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], StakeholderDialogComponent);
     return StakeholderDialogComponent;
@@ -1476,11 +1474,11 @@ var ActionDialogComponent = /** @class */ (function () {
     ActionDialogComponent.prototype.ngOnInit = function () {
     };
     ActionDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'action-dialog',
             template: __webpack_require__("./src/app/customer/team/action/action-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], ActionDialogComponent);
     return ActionDialogComponent;
@@ -1553,11 +1551,11 @@ var ProjectRythmDialogComponent = /** @class */ (function () {
     ProjectRythmDialogComponent.prototype.ngOnInit = function () {
     };
     ProjectRythmDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'projectrythm-dialog',
             template: __webpack_require__("./src/app/customer/team/projectrythm/projectrythm-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], ProjectRythmDialogComponent);
     return ProjectRythmDialogComponent;
@@ -1627,11 +1625,11 @@ var TeamDialogComponent = /** @class */ (function () {
     TeamDialogComponent.prototype.ngOnInit = function () {
     };
     TeamDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'team-dialog',
             template: __webpack_require__("./src/app/customer/team/team-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], TeamDialogComponent);
     return TeamDialogComponent;
@@ -1851,19 +1849,19 @@ var TeamViewComponent = /** @class */ (function () {
         }, function (err) { return console.log(entityName + " could not be deleted :" + err); });
     };
     TeamViewComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'team-view',
             template: __webpack_require__("./src/app/customer/team/team-view.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_6__angular_material__["c" /* MatDialog */]])
     ], TeamViewComponent);
     return TeamViewComponent;
@@ -1934,11 +1932,11 @@ var TeamMemberDialogComponent = /** @class */ (function () {
     TeamMemberDialogComponent.prototype.ngOnInit = function () {
     };
     TeamMemberDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'teammember-dialog',
             template: __webpack_require__("./src/app/customer/team/teammember/teammember-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], TeamMemberDialogComponent);
     return TeamMemberDialogComponent;
@@ -2007,11 +2005,11 @@ var TravelDialogComponent = /** @class */ (function () {
     TravelDialogComponent.prototype.ngOnInit = function () {
     };
     TravelDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'travel-dialog',
             template: __webpack_require__("./src/app/customer/travel/travel-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], TravelDialogComponent);
     return TravelDialogComponent;
@@ -2083,11 +2081,11 @@ var CertificationDialogComponent = /** @class */ (function () {
     CertificationDialogComponent.prototype.ngOnInit = function () {
     };
     CertificationDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'certification-dialog',
             template: __webpack_require__("./src/app/employee/certification/certification-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], CertificationDialogComponent);
     return CertificationDialogComponent;
@@ -2155,11 +2153,11 @@ var EmployeeDialogComponent = /** @class */ (function () {
     EmployeeDialogComponent.prototype.ngOnInit = function () {
     };
     EmployeeDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'employee-dialog',
             template: __webpack_require__("./src/app/employee/employee-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], EmployeeDialogComponent);
     return EmployeeDialogComponent;
@@ -2213,7 +2211,7 @@ var EmployeeMainComponent = /** @class */ (function () {
         this.route = route;
         this.dialog = dialog;
         this.utilityService = utilityService;
-        this.notify = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.notify = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.employees = [];
         this.employee = new __WEBPACK_IMPORTED_MODULE_6__employee__["a" /* Employee */]();
     }
@@ -2291,23 +2289,23 @@ var EmployeeMainComponent = /** @class */ (function () {
         return this.utilityService.checkEntity(entity);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
     ], EmployeeMainComponent.prototype, "notify", void 0);
     EmployeeMainComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'employee-main',
             template: __webpack_require__("./src/app/employee/employee-main.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_7__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_3__services_utility_service__["a" /* UtilityService */]])
     ], EmployeeMainComponent);
     return EmployeeMainComponent;
@@ -2530,19 +2528,19 @@ var EmployeeViewComponent = /** @class */ (function () {
         }, function (err) { return console.log(entityName + " could not be deleted :" + err); });
     };
     EmployeeViewComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'employee-view',
             template: __webpack_require__("./src/app/employee/employee-view.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_14__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialog */]])
     ], EmployeeViewComponent);
     return EmployeeViewComponent;
@@ -2617,11 +2615,11 @@ var FeedbackDialogComponent = /** @class */ (function () {
     FeedbackDialogComponent.prototype.ngOnInit = function () {
     };
     FeedbackDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'feedback-dialog',
             template: __webpack_require__("./src/app/employee/feedback/feedback-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], FeedbackDialogComponent);
     return FeedbackDialogComponent;
@@ -2690,11 +2688,11 @@ var ImprovementAreaDialogComponent = /** @class */ (function () {
     ImprovementAreaDialogComponent.prototype.ngOnInit = function () {
     };
     ImprovementAreaDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'improvementarea-dialog',
             template: __webpack_require__("./src/app/employee/improvementarea/improvementarea-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], ImprovementAreaDialogComponent);
     return ImprovementAreaDialogComponent;
@@ -2763,11 +2761,11 @@ var SkillDialogComponent = /** @class */ (function () {
     SkillDialogComponent.prototype.ngOnInit = function () {
     };
     SkillDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'skill-dialog',
             template: __webpack_require__("./src/app/employee/skill/skill-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], SkillDialogComponent);
     return SkillDialogComponent;
@@ -2837,11 +2835,11 @@ var TrainingDialogComponent = /** @class */ (function () {
     TrainingDialogComponent.prototype.ngOnInit = function () {
     };
     TrainingDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'training-dialog',
             template: __webpack_require__("./src/app/employee/training/training-dialog.html")
         }),
-        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialogRef */], Object])
     ], TrainingDialogComponent);
     return TrainingDialogComponent;
@@ -2906,27 +2904,6 @@ var FooterComponent = /** @class */ (function () {
         this.route = route;
         this.title = 'Team Operations System';
     }
-    FooterComponent.prototype.ngOnInit = function () {
-        /*
-          this.items = [
-              {
-                  label: 'Home',
-                  icon: 'fa-home',
-                  command: (onclick)=> {this.navigateHome()}
-              },
-              {
-                  label: 'Employee',
-                  icon: 'fa-users',
-                  command: (onclick)=> {this.navigateEmployeeHome()}
-              },
-              {
-                  label: 'Customer',
-                  icon: 'fa-briefcase',
-                  command: (onclick)=> {this.navigateCustomers()}
-              }
-          ];
-          */
-    };
     FooterComponent.prototype.navigateHome = function () {
         this.router.navigate(['/']);
     };
@@ -2943,11 +2920,11 @@ var FooterComponent = /** @class */ (function () {
         this.router.navigate(['/profile'], { skipLocationChange: false });
     };
     FooterComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'footer',
             template: __webpack_require__("./src/app/footer/footer.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], FooterComponent);
     return FooterComponent;
 }());
@@ -2959,7 +2936,7 @@ var FooterComponent = /** @class */ (function () {
 /***/ "./src/app/footer/footer.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div fxFlex=\"100%\" >\n\n<p>    © 2018 . All rights reserved </p>\n\n</div>\n"
+module.exports = "   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\n   <div fxFlex=\"100%\" class=\"tos-footer\" >\n      <p style=\"width: 41%\">© Copyright 2018. <a href=\"https://www.comakeit.com/\" target=\"_blank\">coMakeIT </a> | All Rights Reserved.</p>\n      <p style=\"width: 25%\"></p>\n      <p style=\"width: 34%\">Social Networks:\n        <span style=\"margin-left: 5px;\">\n          <a href=\"https://www.facebook.com/comakeit\" target=\"_blank\"><i class=\"fa fa-facebook social-icons \" aria-hidden=\"true\"></i></a>\n          <a href=\"https://www.linkedin.com/company/comakeit\" target=\"_blank\"><i class=\"fa fa-linkedin social-icons \" aria-hidden=\"true\"></i></a>\n          <a href=\"https://twitter.com/comakeit\" target=\"_blank\"><i class=\"fa fa-twitter social-icons \" aria-hidden=\"true\"></i></a>\n        </span></p>\n   </div>\n   <div fxFlex=\"15%\" fxHide.lt-md=\"true\"></div>\n"
 
 /***/ }),
 
@@ -2995,19 +2972,19 @@ var HomeComponent = /** @class */ (function () {
             this.router.navigate(['view/login']);
     };
     HomeComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'home',
             template: __webpack_require__("./src/app/home/home.html"),
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["trigger"])('fade', [
-                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["state"])('void', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["style"])({ opacity: 0 })),
-                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["transition"])(':enter, :leave', [
-                        Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["animate"])('200ms ease-in')
+                Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["m" /* trigger */])('fade', [
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["j" /* state */])('void', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["k" /* style */])({ opacity: 0 })),
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["l" /* transition */])(':enter, :leave', [
+                        Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["e" /* animate */])('200ms ease-in')
                     ])
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_3__services_localStorage_service__["a" /* LocalStorageService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_localStorage_service__["a" /* LocalStorageService */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -3081,12 +3058,17 @@ var LoginComponent = /** @class */ (function () {
             _this.wrongCreds = "Invalid Credentials";
         });
     };
+    LoginComponent.prototype.onKeydown = function (event) {
+        if (event.key === "Enter") {
+            this.login(this.user);
+        }
+    };
     LoginComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'login',
             template: __webpack_require__("./src/app/login/login.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_4__services_localStorage_service__["a" /* LocalStorageService */], __WEBPACK_IMPORTED_MODULE_2__services_utility_service__["a" /* UtilityService */],
             __WEBPACK_IMPORTED_MODULE_5__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_6__services_url_service__["a" /* UrlService */]])
     ], LoginComponent);
@@ -3100,7 +3082,7 @@ var LoginComponent = /** @class */ (function () {
 /***/ "./src/app/login/login.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"tos-login-heading\">Team Operations System</h2>\n<mat-card flex=\"flex\">\n   <h3> Login </h3>\n   <mat-card-content>\n      <br>\n      <mat-form-field>\n         <input matInput placeholder=\"Username\"  [(ngModel)]=\"user.username\" required >\n      </mat-form-field>\n      <br>\n      <mat-form-field>\n         <input matInput placeholder=\"Password\" [type]=\"hide ? 'password' : 'text'\"  [(ngModel)]=\"user.password\" required>\n         <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n      </mat-form-field>\n      <br><br>\n      <button mat-raised-button class=\"tos-primary-button\" (click)=\"login(user)\">Login</button>\n      <br><br>\n      <a *ngIf = \"wrongCreds !== undefined\" style=\"padding-left: 16px; color: red; font-size: 12px\"> {{wrongCreds}} </a>\n      <p class=\"font-small grey-text d-flex justify-content-end\">Not a member?\n         <a routerLink=\"../../view/register\" href=\"#\" class=\"blue-text ml-1\"> Sign Up</a>\n      </p>\n   </mat-card-content>\n</mat-card>\n"
+module.exports = "<h2 class=\"tos-login-heading\">Team Operations System</h2>\n<mat-card flex=\"flex\">\n   <h3> Login </h3>\n   <mat-card-content>\n      <br>\n      <mat-form-field>\n         <input matInput placeholder=\"Username\"  [(ngModel)]=\"user.username\" required >\n      </mat-form-field>\n      <br>\n      <mat-form-field>\n         <input (keydown)=\"onKeydown($event)\" matInput placeholder=\"Password\" [type]=\"hide ? 'password' : 'text'\"  [(ngModel)]=\"user.password\" required>\n         <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n      </mat-form-field>\n      <br><br>\n      <button mat-raised-button class=\"tos-primary-button\" (click)=\"login(user)\">Login</button>\n      <br><br>\n      <a *ngIf = \"wrongCreds !== undefined\" style=\"padding-left: 16px; color: red; font-size: 12px\"> {{wrongCreds}} </a>\n      <p class=\"font-small grey-text d-flex justify-content-end\">Not a member?\n         <a routerLink=\"../../view/register\" href=\"#\" class=\"blue-text ml-1\"> Sign Up</a>\n      </p>\n   </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -3187,11 +3169,11 @@ var BreadcrumbComponent = /** @class */ (function () {
         }
     };
     BreadcrumbComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'breadcrumb',
             template: __webpack_require__("./src/app/menu/breadcrumb.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_2__angular_router__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
     ], BreadcrumbComponent);
     return BreadcrumbComponent;
 }());
@@ -3203,7 +3185,7 @@ var BreadcrumbComponent = /** @class */ (function () {
 /***/ "./src/app/menu/breadcrumb.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"height:40px\">\r\n  <div class=\"tos-breads\" *ngIf=\"crumbs.length > 0 && crumbs[0].entityId != -1\">\r\n     <a *ngFor=\"let crumb of crumbs\" class=\"tos-crumbs-a\">\r\n     <span (click)=\"navigate(crumb)\"  >\r\n        <span class=\"tos-breadcrumb-content\"> {{crumb.label}}\r\n            <a class=\"tos-breadcrumb-content\" *ngIf=\"crumb.message !== ''\"> {{crumb.message}}  </a>\r\n        </span>\r\n        <a  class=\"tos-arrow\" *ngIf=\"crumbs.length > 1\"> &#9658; </a>\r\n     </span>\r\n     </a>\r\n  </div>\r\n</div>\r\n<!--  &#9658; -->\r\n"
+module.exports = "<div>\r\n  <div class=\"tos-breads\" *ngIf=\"crumbs.length > 0 && crumbs[0].entityId != -1\">\r\n     <a *ngFor=\"let crumb of crumbs\" class=\"tos-crumbs-a\">\r\n     <span (click)=\"navigate(crumb)\"  >\r\n        <span class=\"tos-breadcrumb-content\"> {{crumb.label}}\r\n            <a class=\"tos-breadcrumb-content\" *ngIf=\"crumb.message !== ''\"> {{crumb.message}}  </a>\r\n        </span>\r\n        <a  class=\"tos-arrow\" *ngIf=\"crumbs.length > 1\"> &#9658; </a>\r\n     </span>\r\n     </a>\r\n  </div>\r\n</div>\r\n<!--  &#9658; -->\r\n"
 
 /***/ }),
 
@@ -3274,11 +3256,11 @@ var MenuComponent = /** @class */ (function () {
         this.router.navigate(['view/login']);
     };
     MenuComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'menu',
             template: __webpack_require__("./src/app/menu/menu.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], MenuComponent);
     return MenuComponent;
 }());
@@ -3291,56 +3273,6 @@ var MenuComponent = /** @class */ (function () {
 /***/ (function(module, exports) {
 
 module.exports = "<mat-toolbar >\n  <a href=\"./index.html\" class=\"tos-title-style\">\n   <h2 class=\"title-xs\">{{titleXS}}</h2>\n   <h2 class=\"title-gt-xs\">{{title}}</h2>\n</a>\n<span class=\"example-spacer\"></span>\n<div fxShow=\"true\" fxHide.lt-md=\"true\" class=\"tos-menu-buttons\">\n  <a (click)=\"navigateHome()\">Home</a>\n <a (click)=\"navigateCustomers()\">Customer</a>\n  <a (click)=\"navigateEmployeeHome()\">Employee</a>\n  <a (click)=\"navigateAbout()\">About</a>\n  <a (click)=\"logout()\">Logout</a>\n <!--  <button mat-button (click)=\"navigateHome()\"  disableRipple=\"true\">Home</button>\n   <button mat-button (click)=\"navigateEmployeeHome()\">Employee</button>\n   <button mat-button (click)=\"navigateCustomers()\">Customer</button>\n  <button mat-button (click)=\"navigateProfile()\">DashBoard</button>\n   <button mat-button (click)=\"navigateAbout()\">About</button>\n   <button mat-button (click)=\"logout()\">Logout</button> -->\n</div>\n<div class=\"tos-xs-menu\" fxShow=\"false\" fxShow.lt-md=\"true\" fxLayout=\"column\">\n   <mat-menu #appMenu=\"matMenu\" [overlapTrigger]=\"false\">\n <!--    <button mat-button (click)=\"navigateHome()\">Home</button>\n   <button mat-button (click)=\"navigateEmployeeHome()\">Employee</button>\n   <button mat-button (click)=\"navigateCustomers()\">Customer</button>\n    <button mat-button (click)=\"navigateProfile()\">DashBoard</button>\n   <button mat-button (click)=\"navigateAbout()\">About</button>\n   <button mat-button (click)=\"logout()\">Logout</button>-->\n   <a (click)=\"navigateHome()\">Home</a>\n   <a (click)=\"navigateCustomers()\">Customer</a>\n   <a (click)=\"navigateEmployeeHome()\">Employee</a>\n   <a (click)=\"navigateAbout()\">About</a>\n   <a (click)=\"logout()\">Logout</a>\n   </mat-menu>\n\n   <i class=\"fa fa-navicon tos-menu-icon\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appMenu\"></i>\n\n\n</div>\n</mat-toolbar>\n\n<breadcrumb> </breadcrumb>\n"
-
-/***/ }),
-
-/***/ "./src/app/prime.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrimeModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_primeng_primeng__ = __webpack_require__("./node_modules/primeng/primeng.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_primeng_primeng__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_button__ = __webpack_require__("./node_modules/primeng/button.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_primeng_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_primeng_menubar__ = __webpack_require__("./node_modules/primeng/menubar.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_primeng_menubar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_primeng_menubar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_primeng_datalist__ = __webpack_require__("./node_modules/primeng/datalist.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_primeng_datalist___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_primeng_datalist__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_datatable__ = __webpack_require__("./node_modules/primeng/datatable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_primeng_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_primeng_inplace__ = __webpack_require__("./node_modules/primeng/inplace.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_primeng_inplace___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_primeng_inplace__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_primeng_card__ = __webpack_require__("./node_modules/primeng/card.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_primeng_card___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_primeng_card__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-var PrimeModule = /** @class */ (function () {
-    function PrimeModule() {
-    }
-    PrimeModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["MenuModule"], __WEBPACK_IMPORTED_MODULE_2_primeng_button__["ButtonModule"], __WEBPACK_IMPORTED_MODULE_3_primeng_menubar__["MenubarModule"], __WEBPACK_IMPORTED_MODULE_4_primeng_datalist__["DataListModule"], __WEBPACK_IMPORTED_MODULE_5_primeng_datatable__["DataTableModule"], __WEBPACK_IMPORTED_MODULE_6_primeng_inplace__["InplaceModule"], __WEBPACK_IMPORTED_MODULE_7_primeng_card__["CardModule"]],
-            exports: [__WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["MenuModule"], __WEBPACK_IMPORTED_MODULE_2_primeng_button__["ButtonModule"], __WEBPACK_IMPORTED_MODULE_3_primeng_menubar__["MenubarModule"], __WEBPACK_IMPORTED_MODULE_4_primeng_datalist__["DataListModule"], __WEBPACK_IMPORTED_MODULE_5_primeng_datatable__["DataTableModule"], __WEBPACK_IMPORTED_MODULE_6_primeng_inplace__["InplaceModule"], __WEBPACK_IMPORTED_MODULE_7_primeng_card__["CardModule"]]
-        })
-    ], PrimeModule);
-    return PrimeModule;
-}());
-
-
 
 /***/ }),
 
@@ -3366,7 +3298,7 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.ngOnInit = function () {
     };
     ProfileComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'profile',
             template: __webpack_require__("./src/app/profile/profile.html")
         }),
@@ -3439,12 +3371,17 @@ var RegisterComponent = /** @class */ (function () {
             location.href = (location.origin === 'http://localhost:4200') ? location.origin : _this.urlService.getAppBaseUrl();
         }, function (err) { return console.log("users could not be updated :" + err); });
     };
+    RegisterComponent.prototype.onKeydown = function (event) {
+        if (event.key === "Enter") {
+            this.register(this.newUser);
+        }
+    };
     RegisterComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'register',
             template: __webpack_require__("./src/app/register/register.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"], __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_4__services_localStorage_service__["a" /* LocalStorageService */], __WEBPACK_IMPORTED_MODULE_2__services_utility_service__["a" /* UtilityService */],
             __WEBPACK_IMPORTED_MODULE_5__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_6__services_url_service__["a" /* UrlService */]])
     ], RegisterComponent);
@@ -3458,7 +3395,7 @@ var RegisterComponent = /** @class */ (function () {
 /***/ "./src/app/register/register.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"tos-login-heading\">Team Operations System</h2>\n<mat-card flex=\"flex\">\n   <h3> Register </h3>\n   <mat-card-content>\n      <br>\n      <mat-form-field>\n         <input matInput placeholder=\"Username\"  [(ngModel)]=\"newUser.username\" required >\n      </mat-form-field>\n      <br>\n      <mat-form-field>\n         <input matInput placeholder=\"Password\" [type]=\"hide ? 'password' : 'text'\"  [(ngModel)]=\"newUser.password\" required>\n         <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n      </mat-form-field>\n      <br><br>\n      <button mat-raised-button class=\"tos-primary-button\" (click)=\"register(newUser)\">Register</button>\n      <br><br>\n      <p class=\"font-small grey-text d-flex justify-content-end\">Already a member?\n         <a routerLink=\"../../view/login\" href=\"#\" class=\"blue-text ml-1\"> Login</a>\n      </p>\n   </mat-card-content>\n</mat-card>\n"
+module.exports = "<h2 class=\"tos-login-heading\">Team Operations System</h2>\n<mat-card flex=\"flex\">\n   <h3> Register </h3>\n   <mat-card-content>\n      <br>\n      <mat-form-field>\n         <input matInput placeholder=\"Username\"  [(ngModel)]=\"newUser.username\" required >\n      </mat-form-field>\n      <br>\n      <mat-form-field>\n         <input matInput (keydown)=\"onKeydown($event)\" placeholder=\"Password\" [type]=\"hide ? 'password' : 'text'\"  [(ngModel)]=\"newUser.password\" required>\n         <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n      </mat-form-field>\n      <br><br>\n      <button mat-raised-button class=\"tos-primary-button\" (click)=\"register(newUser)\">Register</button>\n      <br><br>\n      <p class=\"font-small grey-text d-flex justify-content-end\">Already a member?\n         <a routerLink=\"../../view/login\" href=\"#\" class=\"blue-text ml-1\"> Login</a>\n      </p>\n   </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -3508,7 +3445,7 @@ var AuthService = /** @class */ (function () {
         }).toPromise();
     };
     AuthService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_2__services_url_service__["a" /* UrlService */]])
     ], AuthService);
     return AuthService;
@@ -3585,7 +3522,7 @@ var DataService = /** @class */ (function () {
             .then(function (response) { return response; });
     };
     DataService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__localStorage_service__["a" /* LocalStorageService */],
             __WEBPACK_IMPORTED_MODULE_2__utility_service__["a" /* UtilityService */], __WEBPACK_IMPORTED_MODULE_4__url_service__["a" /* UrlService */]])
     ], DataService);
@@ -3626,7 +3563,7 @@ var LocalStorageService = /** @class */ (function () {
         return tokendate == null ? null : tokendate;
     };
     LocalStorageService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])()
     ], LocalStorageService);
     return LocalStorageService;
 }());
@@ -3673,7 +3610,7 @@ var UrlService = /** @class */ (function () {
         return this.baseUrl + this.baseResourceUserUrl;
     };
     UrlService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [])
     ], UrlService);
     return UrlService;
@@ -3739,7 +3676,7 @@ var UtilityService = /** @class */ (function () {
             return false;
     };
     UtilityService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [])
     ], UtilityService);
     return UtilityService;
@@ -3778,7 +3715,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });

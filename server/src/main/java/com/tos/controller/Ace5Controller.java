@@ -19,6 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tos.model.Ace5;
 import com.tos.service.Ace5Service;
 
+/**
+ * This class rest controller for Ace5 urls
+ * contains CRUD urls for Ace5
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 @RestController
 @RequestMapping("/tos")
 public class Ace5Controller {

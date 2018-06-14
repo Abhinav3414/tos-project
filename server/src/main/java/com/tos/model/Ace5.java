@@ -19,6 +19,15 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+/**
+ * This is a model class Ace5 
+ * contains variables, setters and getters
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 @Entity(name = "Ace5")
 @Table(name = "Ace5")
 @EntityListeners(AuditingEntityListener.class)

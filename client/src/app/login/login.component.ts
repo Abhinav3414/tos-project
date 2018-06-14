@@ -46,4 +46,10 @@ export class LoginComponent {
       );
   }
 
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      this.login(this.user);
+    }
+  }
+
 }

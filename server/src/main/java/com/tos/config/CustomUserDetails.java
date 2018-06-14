@@ -10,6 +10,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.tos.model.Role;
 import com.tos.model.User;
 
+/**
+ * This class is UserDetailsService of OAuth2 security
+ * it maps users with OAuth userDetails object and enriches them with authentication and authorization features
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 @SuppressWarnings("serial")
 public class CustomUserDetails implements UserDetails {
 
@@ -23,7 +32,7 @@ public class CustomUserDetails implements UserDetails {
 
 		ArrayList<GrantedAuthority> auths = new ArrayList<>();
 		for (Role role : byUserName.getRoles()) {
-			auths.add(new SimpleGrantedAuthority(role.getName().toUpperCase()));
+			auths.add(new SimpleGrantedAuthority(role.getName()));
 		}
 		this.authorities = auths;
 	}

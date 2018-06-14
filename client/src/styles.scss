@@ -30,6 +30,12 @@ table {
           font-weight: 400;
       }
 }
+
+table td,
+table th {
+font-size: 13px;
+}
+
 register mat-card,
 login mat-card {
   width: 294px;
@@ -37,7 +43,7 @@ login mat-card {
     margin-top: 20px;
 }
 .tos-icons {
-  font-size: 22px;
+  font-size: 18px;
     color: grey;
 }
 .tos-entity-top-content > a {
@@ -55,8 +61,9 @@ login mat-card {
 
  body {
     background-color: #e8e4d9;
-     background-image: url(./background-9.jpg);
-    // background-position-y: center;
+     background-image: url(./background-tos.png);
+     //background-image: url(./background-9.jpg);
+    background-position-x: center;
      background-repeat: no-repeat;
      background-size: cover;
     /* background-attachment: fixed;
@@ -77,13 +84,16 @@ login mat-card {
 }
  .tos-body-style {
      //background-color: #f6f6f6;
-     min-height: 81vh;
+     min-height: 76vh;
 }
  .tos-menu-style {
-     min-height: 116px;
+   min-height: 16vh;
+}
+.tos-footer-style {
+ min-height: 8vh;
 }
 .tos-entity-name {
-  font: 400 18px/20px Roboto,"Helvetica Neue",sans-serif;
+  font: 400 17px/17px Roboto,"Helvetica Neue",sans-serif;
     padding-bottom: 8px;
     padding-top: 15px;
 }
@@ -99,11 +109,11 @@ login mat-card {
      color: #ffffff;
      background: #6d6d6d;;
      font-size: 12px;
-     margin-top: -2em;
      right: 0;
      bottom: 0;
      left: 0;
      padding: 1rem;
+     height: inherit;
 
 .tos-footer {
 
@@ -137,7 +147,6 @@ login mat-card {
 }
 
 }
-
 
  .mat-form-field {
      width: 200px;
@@ -191,7 +200,7 @@ register .tos-primary-button.mat-raised-button,
      padding: 0;
 }
  .tos-menu-buttons > a {
-     font-size: 15px;
+     font-size: 14px;
      cursor: pointer;
      padding: 0 12px;
 }
@@ -231,6 +240,18 @@ register .tos-primary-button.mat-raised-button,
      height: 35px;
      width: 35px;
 }
+
+.mat-dialog-title {
+    font: 400 20px/24px Roboto,"Helvetica Neue",sans-serif;
+}
+
+.tos-primary-button.mat-raised-button, mat-dialog-actions .tos-primary-button.mat-raised-button {
+font-weight: 400;
+}
+
+.tos-button.mat-button {
+    font-weight: 400;
+}
  .tos-button-right {
      text-align: right;
 }
@@ -247,12 +268,24 @@ register .tos-primary-button.mat-raised-button,
  .mat-toolbar {
      background: none;
 }
+
  .mat-card .mat-card-actions {
      text-align: right;
      padding: 0;
+     display: flex;
+     justify-content: flex-end;
 }
+
+.mat-card>.mat-card-actions:last-child {
+    margin-right: -6px;
+}
+
+mat-card-actions > span {
+    display: inline-flex;
+}
+
  .mat-expansion-panel-header-title h3 {
-     font: 400 16px/16px Roboto,"Helvetica Neue",sans-serif;
+     font: 400 15px/15px Roboto,"Helvetica Neue",sans-serif;
 }
  .tos-material-button {
      display: flex;
@@ -358,8 +391,8 @@ register mat-form-field,
  login mat-form-field {
      padding-left: 16px;
 }
- .tos-title-style > h2 {
-   font: 400 28px/28px Roboto,"Helvetica Neue",sans-serif;
+.tos-title-style > h2 {
+    font: 400 26px/26px Arimo,sans-serif;
 }
 
  .mat-dialog-actions {
@@ -393,6 +426,7 @@ register mat-form-field,
      cursor: pointer;
      background: #c3bfb338;
      padding-left: 10px;
+     font-size: 13px;
 }
  .tos-breadcrumb-content:hover {
      color: #6d6d6b;
@@ -416,7 +450,7 @@ register mat-form-field,
      height: 46px;
 }
  mat-card-title > h3 > span {
-     font: 400 17px/20px Roboto,"Helvetica Neue",sans-serif;
+     font: 400 21px/20px Arimo,sans-serif;
 }
  mat-card .mat-card-content {
      font-size: 13px;
@@ -431,8 +465,8 @@ register mat-form-field,
      margin: 0;
 }
  .tos-arrow {
-     font-size: 14px;
-     padding: 0 10px;
+   font-size: 12px;
+  padding: 0 10px 0 3px;
 }
  .tos-router-container {
      display: flex;
@@ -493,11 +527,18 @@ register mat-form-field,
      padding: 25px 40px 40px 40px !important;
 }
  .container .mat-card:not([class*=mat-elevation-z]) {
-     box-shadow: 0 0px 1px -2px rgba(0,0,0,.1), 0 0px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.02), 0 0px 3px -1px rgba(0,0,0,.2);
+     //box-shadow: 0 0px 1px -2px rgba(0,0,0,.1), 0 0px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.02), 0 0px 3px -1px rgba(0,0,0,.2);
+     box-shadow: 1px 0 5px rgba(0, 0, 0, 0.08);
 }
  .container .mat-card:not([class*=mat-elevation-z]):hover {
-     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 -2px 1px -2px rgba(0,0,0,.2);
+     //box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 -2px 1px -2px rgba(0,0,0,.2);
+     box-shadow: 0 0 16px #a9a7a6a6;
 }
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0 1px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 0px 18px 0 rgba(0,0,0,.12) !important;
+}
+
  .shake-hover-style .tos-cust-heading {
      color: #0092e6 !important;
 }
@@ -508,7 +549,8 @@ register mat-form-field,
 }
  .tos-cust-heading {
      cursor: pointer;
-     font: 400 17px/20px Roboto,"Helvetica Neue",sans-serif;
+     text-transform: uppercase;
+    font: 400 20px/20px Arimo,sans-serif;
 }
  mat-card-content {
      font: 400 14px/20px Roboto,"Helvetica Neue",sans-serif;

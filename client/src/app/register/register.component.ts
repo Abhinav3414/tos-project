@@ -41,4 +41,10 @@ export class RegisterComponent {
       );
   }
 
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      this.register(this.newUser);
+    }
+  }
+
 }

@@ -11,6 +11,15 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+/**
+ * This class contains CORS configuration
+ * it allows rest services to interact on cross platforms
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 	@Configuration
 	@Order(Ordered.HIGHEST_PRECEDENCE)
 	public class CORSConfig {

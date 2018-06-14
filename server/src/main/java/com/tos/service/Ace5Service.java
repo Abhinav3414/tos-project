@@ -9,6 +9,15 @@ import com.tos.model.Ace5;
 import com.tos.model.Action;
 import com.tos.repository.Ace5Repository;
 
+/**
+ * This is a service class for Ace5
+ * it is been called by controllers and it calls JPA repository methods to perform crud operations on DB
+ * 
+ * @author Abhinav Gupta
+ * @version 1.0 
+ * @since 15-06-2018
+ */
+
 @Service
 public class Ace5Service {
 	
