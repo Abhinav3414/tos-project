@@ -7,8 +7,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.tos.config.CustomUserDetails;
+import com.tos.model.CustomUserDetails;
 import com.tos.model.Role;
 import com.tos.model.Roles;
 import com.tos.model.User;
@@ -34,10 +37,11 @@ public class TosApplication {
 	@Autowired
 	public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repo) throws Exception {
 		
-		if(repo.count() == 0) {
-			repo.save(new User("tosadminuser","tosadminuser@comakeit.com","tosadminuser", Arrays.asList(new Role(Roles.ADMIN))));
+	/*	if(repo.count() == 0) {
+			repo.save(new User("tosadminuser","tosadminuser@comakeit.com","tosadminuser", Arrays.asList(new Role(Roles.ADMIN.toString()))));
 		}
 		builder.userDetailsService(s -> new CustomUserDetails(repo.findByUsername(s)));
+*/
 	}
 
 	

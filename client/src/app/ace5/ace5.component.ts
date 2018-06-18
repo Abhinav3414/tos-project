@@ -141,7 +141,6 @@ export class Ace5Component {
     }
 
   delelteEntity(entityName, id, entityArray) {
-    console.log(entityName)
     this.dataService.delelteEntity(entityName, id)
       .then((resCustomerData) => {
         entityArray.splice(entityArray.findIndex(function(i) {

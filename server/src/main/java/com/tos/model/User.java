@@ -2,6 +2,7 @@ package com.tos.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -22,16 +25,20 @@ import org.springframework.data.annotation.CreatedDate;
 public class User {
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String username;
 	private String email;
 	private String password;
+	private boolean isActive;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Role> roles;
+	@JoinTable(name = "user_roles", joinColumns = 
+	@JoinColumn(name = "user_id"), inverseJoinColumns = 
+	@JoinColumn(name = "role_id"))
+	private Set<Role> roles;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
@@ -39,13 +46,14 @@ public class User {
 
 	public User() {
 	}
-	
-	public User(String username, String email, String password, List<Role> roles) {
+
+	public User(User user) {
 		super();
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.roles = roles;
+		this.username = user.username;
+		this.email = user.email;
+		this.password = user.password;
+		this.isActive = user.isActive;
+		this.roles = user.roles;
 	}
 
 	public Long getId() {
@@ -80,12 +88,19 @@ public class User {
 		this.password = password;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
 
-	public List<Role> getRoles() {
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 

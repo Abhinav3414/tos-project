@@ -1,7 +1,9 @@
 package com.tos.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,23 +12,24 @@ import javax.persistence.Table;
 public class Role {
 
 	@Id
-	@GeneratedValue
+	@Column(name = "role_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	String name;
+	private String name;
 
 	Role() {
 	}
 
-	public Role(Roles admin) {
-		this.name = admin.toString();
+	public Role(String name) {
+		this.name = name;
 	}
 
 	public String getName() {
 		return name.toString();
 	}
 
-	public void setName(Roles name) {
-		this.name = name.toString();
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

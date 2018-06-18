@@ -1,55 +1,51 @@
-package com.tos.config;
+package com.tos.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.tos.model.Role;
-import com.tos.model.User;
-
 /**
- * This class is UserDetailsService of OAuth2 security
- * it maps users with OAuth userDetails object and enriches them with authentication and authorization features
+ * This class is UserDetailsService of OAuth2 security it maps users with OAuth
+ * userDetails object and enriches them with authentication and authorization
+ * features
  * 
  * @author Abhinav Gupta
- * @version 1.0 
+ * @version 1.0
  * @since 15-06-2018
  */
 
-@SuppressWarnings("serial")
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetails extends User implements UserDetails {
 
-	private String username;
-	private String password;
+	private static final long serialVersionUID = 1L;
+	
+	String ROLE_PREFIX = "ROLE_";
+
 	Collection<? extends GrantedAuthority> authorities;
 
-	public CustomUserDetails(User byUserName) {
-		this.username = byUserName.getUsername();
-		this.password = byUserName.getPassword();
-
-		ArrayList<GrantedAuthority> auths = new ArrayList<>();
-		for (Role role : byUserName.getRoles()) {
-			auths.add(new SimpleGrantedAuthority(role.getName()));
-		}
-		this.authorities = auths;
+	public CustomUserDetails(final User users) {
+		super(users);
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
+		return getRoles()
+				.stream()
+				.map(role -> new SimpleGrantedAuthority(ROLE_PREFIX + role.getName()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public String getPassword() {
-		return password;
+		return super.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return username;
+		return super.getUsername();
 	}
 
 	@Override

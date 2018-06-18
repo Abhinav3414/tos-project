@@ -67,10 +67,12 @@ export class CustomerMainComponent {
   ngOnInit() {
     this.utilityService.currentBreadCrumb.subscribe(bread => this.bread = bread);
 
+/*
     console.log("hi")
     this.dataService.getUsers()
     .then((resCustomerData) => console.log(resCustomerData));
-    
+    */
+
     this.dataService.getEntityAllData('customers')
       .then((resCustomerData) => {
         resCustomerData.forEach(e => this.customers.push(e));
