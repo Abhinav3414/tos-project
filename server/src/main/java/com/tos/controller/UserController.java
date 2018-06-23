@@ -22,22 +22,22 @@ import com.tos.service.UserService;
 @RestController
 @RequestMapping("/tosuser")
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	//TODO: Not safe. Delete Get mapping on Users
 
 	@GetMapping("/users")
 	public List<User> getAllUser(){
 		return userService.getAllUser();
 	}
-	
+
 	@GetMapping("/users/{id}")
 	public User getUser(@PathVariable long id) {
 		return userService.getUser(id);
 	}
-	
+
 	@PostMapping("/users")
 	public ResponseEntity<User> addUser(@RequestBody User user) {
 		User customerUser = userService.addUser(user);
@@ -46,7 +46,7 @@ public class UserController {
 		}
 		return new ResponseEntity<User>(customerUser, HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/users/{id}")
 	public ResponseEntity<Void> updateUser(@Valid @RequestBody User user, @PathVariable Long id) {
 		if(userService.updateUser(user, id)==null) {
@@ -54,7 +54,7 @@ public class UserController {
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<Void> deleteUser(@PathVariable long id) {
 		if(userService.deleteUser(id) ==false) {
@@ -62,5 +62,5 @@ public class UserController {
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
+
 }

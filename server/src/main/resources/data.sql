@@ -1,14 +1,11 @@
-INSERT INTO USER (username, password, is_active) VALUES
-  ('tosadminuser', 'tosadminuser', true);
+--INSERT INTO USER (username, password, is_active) VALUES
+ -- ('tosadminuser',/*tosadminuser*/'$2a$08$LGNaf9Uo7W8cr10Zm0eBS.F4xSgsjxStS5ZOI9fN2zt56ZRQuFH5m', true);
 
-INSERT INTO ROLE (role_id, name) VALUES
-  (1, 'ADMIN'),
-  (2, 'MANAGER'),
-  (3, 'EMPLOYEE'),
-  (4, 'GUEST')
+INSERT INTO ROLE (name) VALUES
+  ('MANAGER'),
+  ('EMPLOYEE'),
+  ('GUEST')
   ;
 
- INSERT INTO USER_ROLES (user_id, role_id) VALUES
-  (1, 1);
-  
-  
+-- INSERT INTO USER_ROLES (user_id, role_id) VALUES (1, 1);
+

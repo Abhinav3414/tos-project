@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 
 /**
  * This class is Resource server which validates requests which have OAuth2 token
@@ -43,10 +42,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         
 	}
 	
-	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+/*	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.parentAuthenticationManager(authenticationManager)
 		.userDetailsService(customUserDetailsService);
-	}
+	}*/
 
 
 }

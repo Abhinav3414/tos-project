@@ -1,6 +1,5 @@
 package com.tos.service;
 
-import java.net.UnknownServiceException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +20,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
 		Optional<User> userOptional = userRepository.findByUsername(username);
-
 		userOptional.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
-
 		return userOptional.map(user -> new CustomUserDetails(user)).get();
 	}
 
