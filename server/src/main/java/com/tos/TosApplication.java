@@ -43,6 +43,12 @@ public class TosApplication {
 	@Autowired
 	public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repo) throws Exception {
 
+		if(roleRepository.count() == 0) {
+			roleRepository.save((new Role("MANAGER")));
+			roleRepository.save((new Role("EMPLOYEE")));
+			roleRepository.save((new Role("GUEST")));
+		}
+		
 		if (repo.count() == 0) {
 			User user = new User();
 			Set<Role> userRole = new HashSet<>();

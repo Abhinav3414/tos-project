@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -32,24 +31,28 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-    @Autowired
+  /*  @Autowired
     private PasswordEncoder oauthClientPasswordEncoder;
-
+*/
     @Bean
     public OAuth2AccessDeniedHandler oauthAccessDeniedHandler() {
         return new OAuth2AccessDeniedHandler();
     }
     
+    private final String CLIENT_ID = "TSCMIT-59D6948DS828F234KJHJKH9C584C749C75";
+    private final String SECRET = "98D473608DD31CDF4AA7360805E483D47360";
+    
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-			.withClient("my-trusted-client")
+			.withClient(CLIENT_ID)
+			.secret(SECRET)
 			.authorizedGrantTypes("client_credentials", "password")
 			.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
 			.scopes("read","write","trust")
 			.resourceIds("oauth2-resource")
-			.secret("secret")
-			.accessTokenValiditySeconds(7200);
+			.accessTokenValiditySeconds(7200)
+			.refreshTokenValiditySeconds(7200);
 	}
 	
 	@Override

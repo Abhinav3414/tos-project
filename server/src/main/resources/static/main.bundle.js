@@ -232,7 +232,6 @@ var Ace5Component = /** @class */ (function () {
         }, function (err) { return console.log(entityName + " could not be updated :" + err); });
     };
     Ace5Component.prototype.delelteEntity = function (entityName, id, entityArray) {
-        console.log(entityName);
         this.dataService.delelteEntity(entityName, id)
             .then(function (resCustomerData) {
             entityArray.splice(entityArray.findIndex(function (i) {
@@ -842,9 +841,11 @@ var CustomerMainComponent = /** @class */ (function () {
     CustomerMainComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.utilityService.currentBreadCrumb.subscribe(function (bread) { return _this.bread = bread; });
-        console.log("hi");
-        this.dataService.getUsers()
-            .then(function (resCustomerData) { return console.log(resCustomerData); });
+        /*
+            console.log("hi")
+            this.dataService.getUsers()
+            .then((resCustomerData) => console.log(resCustomerData));
+            */
         this.dataService.getEntityAllData('customers')
             .then(function (resCustomerData) {
             resCustomerData.forEach(function (e) { return _this.customers.push(e); });

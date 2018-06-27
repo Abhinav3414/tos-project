@@ -12,17 +12,22 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthService {
   AccessToken: string = "";
+  authCode: string;
+  grantType: string;
 
   constructor(private http: Http, private urlService: UrlService) {
   }
 
   login(usercreds): Promise<Token> {
-    // Authorization code is : Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0
+    this.authCode = "Basic VFNDTUlULTU5RDY5NDhEUzgyOEYyMzRLSkhKS0g5QzU4NEM3NDlDNzU6OThENDczNjA4REQzMUNERjRBQTczNjA4MDVFNDgzRDQ3MzYw";
+    this.grantType = "password";
+    // Authorization code is :
+    // Basic VFNDTUlULTU5RDY5NDhEUzgyOEYyMzRLSkhKS0g5QzU4NEM3NDlDNzU6OThENDczNjA4REQzMUNERjRBQTczNjA4MDVFNDgzRDQ3MzYw
     let headersForTokenAPI = new Headers();
     headersForTokenAPI.append("Content-Type", "application/x-www-form-urlencoded");
-    headersForTokenAPI.append("Authorization", "Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0");
+    headersForTokenAPI.append("Authorization", this.authCode);
 
-    var data = "?grant_type=password&username=" + usercreds.username + "&password=" + usercreds.password;
+    var data = "?grant_type=" + this.grantType + "&username=" + usercreds.username + "&password=" + usercreds.password;
 
     return this.http.post(this.urlService.getTokenApiUrl() + data, null, { headers: headersForTokenAPI })
       .map(res => {
