@@ -457,7 +457,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__services_localStorage_service__ = __webpack_require__("./src/app/services/localStorage.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__services_url_service__ = __webpack_require__("./src/app/services/url.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__Interceptors_auth_interceptor__ = __webpack_require__("./src/app/Interceptors/auth.interceptor.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_angular_bootstrap_md__ = __webpack_require__("./node_modules/angular-bootstrap-md/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_angular_bootstrap_md__ = __webpack_require__("./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3434,11 +3434,14 @@ var AuthService = /** @class */ (function () {
     }
     AuthService.prototype.login = function (usercreds) {
         var _this = this;
-        // Authorization code is : Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0
+        this.authCode = "Basic VFNDTUlULTU5RDY5NDhEUzgyOEYyMzRLSkhKS0g5QzU4NEM3NDlDNzU6OThENDczNjA4REQzMUNERjRBQTczNjA4MDVFNDgzRDQ3MzYw";
+        this.grantType = "password";
+        // Authorization code is :
+        // Basic VFNDTUlULTU5RDY5NDhEUzgyOEYyMzRLSkhKS0g5QzU4NEM3NDlDNzU6OThENDczNjA4REQzMUNERjRBQTczNjA4MDVFNDgzRDQ3MzYw
         var headersForTokenAPI = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headersForTokenAPI.append("Content-Type", "application/x-www-form-urlencoded");
-        headersForTokenAPI.append("Authorization", "Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0");
-        var data = "?grant_type=password&username=" + usercreds.username + "&password=" + usercreds.password;
+        headersForTokenAPI.append("Authorization", this.authCode);
+        var data = "?grant_type=" + this.grantType + "&username=" + usercreds.username + "&password=" + usercreds.password;
         return this.http.post(this.urlService.getTokenApiUrl() + data, null, { headers: headersForTokenAPI })
             .map(function (res) {
             _this.AccessToken = res.json().access_token;
