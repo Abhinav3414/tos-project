@@ -22,44 +22,44 @@ import com.tos.service.CustomerService;
 @RestController
 @RequestMapping("/tos")
 public class CustomerController {
-	
+
 	@Autowired
 	private CustomerService customerService;
 
 	@GetMapping("/customers")
-	public List<Customer> getAllCustomers(){
+	public List<Customer> getAllCustomers() {
 		return customerService.getAllCustomer();
 	}
-	
+
 	@GetMapping("/customers/{id}")
 	public Customer getCustomer(@PathVariable long id) {
 		return customerService.getCustomer(id);
 	}
-	
+
 	@PostMapping("/customers")
 	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
 		Customer cust = customerService.addCustomer(customer);
-		if(cust==null) {
+		if (cust == null) {
 			return new ResponseEntity<Customer>(cust, HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<Customer>(cust,HttpStatus.OK);
+		return new ResponseEntity<Customer>(cust, HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/customers/{id}")
-	public ResponseEntity<Void> updateCustomer(@Valid @RequestBody Customer customer, @PathVariable(value="id") Long id) {
-		
-		if(customerService.updateCustomer(customer, id)==null) {
+	public ResponseEntity<Void> updateCustomer(@Valid @RequestBody Customer customer, @PathVariable(value = "id") Long id) {
+
+		if (customerService.updateCustomer(customer, id) == null) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/customers/{id}")
 	public ResponseEntity<Void> deleteCustomer(@PathVariable long id) {
-		if(customerService.deleteCustomer(id) ==false) {
+		if (customerService.deleteCustomer(id) == false) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
+
 }

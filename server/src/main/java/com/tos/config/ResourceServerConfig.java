@@ -37,9 +37,18 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS,"**").permitAll()
-            .antMatchers("/tos/**").hasRole("ADMIN")
+            .antMatchers("/tos/**").access("hasRole('ADMIN') or hasRole('MANAGER')")
             ;
-        
+		
+		
+		
+/*		http
+	    .authorizeRequests()  
+	        .antMatchers("/resource1").permitAll()                
+	        .antMatchers(HttpMethod.GET, "/resource2").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+	        .antMatchers(HttpMethod.GET, "/resource3").hasAuthority("ROLE_ADMIN")
+	        .antMatchers(HttpMethod.GET,"/resource4").access("not( hasRole('USER') ) and isAuthenticated()")
+	*/
 	}
 	
 /*	public void configure(AuthenticationManagerBuilder auth) throws Exception {

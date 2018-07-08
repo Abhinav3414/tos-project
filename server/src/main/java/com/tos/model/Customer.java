@@ -12,17 +12,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Where;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity(name = "Customer")
 @Table(name = "customer")
+@Where(clause = "is_enable=1")
 @EntityListeners(AuditingEntityListener.class)
 public class Customer {
 
@@ -34,6 +34,9 @@ public class Customer {
 	private String name;
 	private String contact;
 	private String contactPerson;
+
+	private Long managerId;
+
 	private String domain;
 	private String address;
 	private String country;
@@ -47,6 +50,8 @@ public class Customer {
 	private String vpnDetails;
 	private String communicator;
 	private String skillsReuired;
+	@Column
+	private Boolean isEnable;
 
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = Goal.class)
 	@JoinColumn(name = "goal_cust_id")
@@ -106,6 +111,14 @@ public class Customer {
 
 	public void setContactPerson(String contactPerson) {
 		this.contactPerson = contactPerson;
+	}
+
+	public Long getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(Long manager) {
+		this.managerId = manager;
 	}
 
 	public String getDomain() {
@@ -212,6 +225,14 @@ public class Customer {
 		this.skillsReuired = skillsReuired;
 	}
 
+	public Boolean getIsEnable() {
+		return isEnable;
+	}
+
+	public void setIsEnable(Boolean isEnable) {
+		this.isEnable = isEnable;
+	}
+
 	public List<Goal> getGoals() {
 		return goals;
 	}
@@ -260,5 +281,4 @@ public class Customer {
 		this.createdAt = createdAt;
 	}
 
-	
 }
