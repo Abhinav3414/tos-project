@@ -19,9 +19,9 @@ export class ContentComponent {
     this.utilityService.currenttokenSubject.subscribe(tokenSubject => {
       this.tokenSub = tokenSubject;
     })
-    var local = this.localStorageService.getValueFromLocalStorage()
+    var local = this.localStorageService.getValueFromLocalStorage();
     if (local !== null)
-      this.tokenSub = local.access_token;
+     this.tokenSub = local.access_token;
 
   }
 }

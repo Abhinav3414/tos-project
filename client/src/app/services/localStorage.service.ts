@@ -20,4 +20,13 @@ export class LocalStorageService {
     return tokendate == null ? null : tokendate;
   }
 
+  public setUserData(userData: any): void {
+    localStorage.setItem("Userdata", JSON.stringify(userData));
+  }
+
+  public getUserDataValueFromLocalStorage(): any {
+    let userdata = JSON.parse(localStorage.getItem("Userdata"));
+    return userdata == null ? null : userdata;
+  }
+
 }

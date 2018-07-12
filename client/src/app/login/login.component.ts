@@ -38,6 +38,12 @@ export class LoginComponent {
       .then((data) => {
         this.localStorageService.setAuthorizationData(data);
         this.utilityService.addTokenSubject(data.access_token);
+
+            this.authService.getCurrentUser(usercreds.username)
+              .then((data) => {
+                    this.localStorageService.setUserData(data);
+              });
+
         this.router.navigate(['/home']);
       },
       (err) => {

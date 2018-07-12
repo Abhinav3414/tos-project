@@ -17,11 +17,15 @@ import { LocalStorageService } from '../services/localStorage.service';
 })
 export class HomeComponent {
   expression: any;
+  username: string = undefined;
+
   constructor(private router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     if (this.localStorageService.getValueFromLocalStorage() == null)
       this.router.navigate(['view/login']);
+
+      this.username = this.localStorageService.getUserDataValueFromLocalStorage().username;
   }
 
 }

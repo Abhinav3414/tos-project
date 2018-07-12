@@ -4,6 +4,7 @@ import { HttpModule, Http, Headers } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Token } from '../token';
 import { UrlService } from '../services/url.service';
+import { LocalStorageService } from './localStorage.service';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
@@ -14,8 +15,14 @@ export class AuthService {
   AccessToken: string = "";
   authCode: string;
   grantType: string;
+  token: any;
 
-  constructor(private http: Http, private urlService: UrlService) {
+  constructor(private http: Http, private localStorageService: LocalStorageService, private urlService: UrlService) {
+  }
+
+  getToken() {
+    if (this.localStorageService.getValueFromLocalStorage() !== null)
+      return this.token = '?access_token=' + this.localStorageService.getValueFromLocalStorage().access_token;
   }
 
   login(usercreds): Promise<Token> {
@@ -34,6 +41,11 @@ export class AuthService {
         this.AccessToken = res.json().access_token;
         return res.json();
       }).toPromise();
+  }
+
+  getCurrentUser(username: String) {
+    return this.http.get(this.urlService.getBaseResourceUserUrl() + "/currentuser/" + username + this.getToken())
+    .map(res => res.json() ).toPromise();
 
   }
 
