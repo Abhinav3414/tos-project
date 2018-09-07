@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   getCurrentUser(username: String) {
-    return this.http.get(this.urlService.getBaseResourceUserUrl() + "/currentuser/" + username + this.getToken())
+    return this.http.get(this.urlService.getBaseResourceUserUrl() + "currentuser/" + username + this.getToken())
     .map(res => res.json() ).toPromise();
 
   }

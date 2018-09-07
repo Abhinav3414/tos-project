@@ -1,4 +1,4 @@
-<mat-toolbar >
+<mat-toolbar *ngIf="isComponentReady === true">
   <a href="./index.html" class="tos-title-style">
    <h2 class="title-xs">{{titleXS}}</h2>
    <h2 class="title-gt-xs">{{title}}</h2>
@@ -8,6 +8,7 @@
   <a (click)="navigateHome()">Home</a>
  <a (click)="navigateCustomers()">Customer</a>
   <a (click)="navigateEmployeeHome()">Employee</a>
+  <a *ngIf="isUserAdmin" (click)="navigateAdmin()">Admin</a>
   <a (click)="navigateAbout()">About</a>
   <a (click)="logout()">Logout</a>
  <!--  <button mat-button (click)="navigateHome()"  disableRipple="true">Home</button>
@@ -28,6 +29,7 @@
    <a (click)="navigateHome()">Home</a>
    <a (click)="navigateCustomers()">Customer</a>
    <a (click)="navigateEmployeeHome()">Employee</a>
+   <a *ngIf="isUserAdmin" (click)="navigateAdmin()">Admin</a>
    <a (click)="navigateAbout()">About</a>
    <a (click)="logout()">Logout</a>
    </mat-menu>

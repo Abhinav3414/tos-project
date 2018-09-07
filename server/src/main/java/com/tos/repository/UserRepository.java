@@ -9,5 +9,5 @@ import com.tos.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	Optional<User> findByUsername(String username);
-
+	
 }

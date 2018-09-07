@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomMaterialModule } from './custom-material.module';
 
 import { AppComponent } from './app.component';
+import { AdminViewComponent } from './admin/admin-view.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
@@ -47,6 +48,8 @@ import { ImprovementAreaDialogComponent } from './employee/improvementarea/impro
 import { FeedbackDialogComponent } from './employee/feedback/feedback-dialog.component';
 import { TrainingDialogComponent } from './employee/training/training-dialog.component';
 import { ActionDialogComponent } from './customer/team/action/action-dialog.component';
+import { AdminRoleDialogComponent } from './admin/admin-roledialog.component';
+
 
 import { DataService } from './services/data.service';
 import { UtilityService } from './services/utility.service';
@@ -60,6 +63,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
+    AdminViewComponent,
     LoginComponent,
     RegisterComponent,
     EmployeeMainComponent,
@@ -83,6 +87,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     TrainingDialogComponent,
     ImprovementAreaDialogComponent,
     FeedbackDialogComponent,
+    AdminRoleDialogComponent,
     ProfileComponent,
     FooterComponent,
     ContentComponent,
@@ -116,7 +121,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EmployeeDialogComponent, CustomerDialogComponent, StakeholderDialogComponent,
     GoalDialogComponent, TeamDialogComponent, ProjectRythmDialogComponent, ActionDialogComponent,
     TeamMemberDialogComponent, TravelDialogComponent, SkillDialogComponent, CertificationDialogComponent,
-    TrainingDialogComponent, ImprovementAreaDialogComponent, FeedbackDialogComponent
+    TrainingDialogComponent, ImprovementAreaDialogComponent, FeedbackDialogComponent, AdminRoleDialogComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -25,7 +25,10 @@ export class HomeComponent {
     if (this.localStorageService.getValueFromLocalStorage() == null)
       this.router.navigate(['view/login']);
 
-      this.username = this.localStorageService.getUserDataValueFromLocalStorage().username;
+      if(this.localStorageService.getUserDataValueFromLocalStorage()) {
+          this.username = this.localStorageService.getUserDataValueFromLocalStorage().username;
+      }
+
   }
 
 }

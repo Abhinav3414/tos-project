@@ -47,6 +47,7 @@ public class TosApplication {
 			roleRepository.save((new Role("MANAGER")));
 			roleRepository.save((new Role("EMPLOYEE")));
 			roleRepository.save((new Role("GUEST")));
+			roleRepository.save((new Role("CUSTOMER")));
 		}
 		
 		if (repo.count() == 0) {

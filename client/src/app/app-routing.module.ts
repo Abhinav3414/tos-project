@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { Ace5Component } from './ace5/ace5.component';
+import { AdminViewComponent } from './admin/admin-view.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'view/about', component: AboutComponent },
   { path: 'view/profile', component: ProfileComponent },
   { path: 'view/customers', component: CustomerMainComponent },
+  { path: 'view/admin', component: AdminViewComponent },
   { path: 'view/customer/:id', component: CustomerViewComponent },
   { path: 'view/employees', component: EmployeeMainComponent },
   { path: 'view/employee/:id', component: EmployeeViewComponent },

@@ -18,13 +18,18 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   imports: [MatButtonModule, MatToolbarModule, MatCardModule, MatInputModule, MatIconModule, MatCheckboxModule,
     MatMenuModule, MatFormFieldModule, MatDialogModule, MatExpansionModule, MatAutocompleteModule, MatSelectModule,
-    MatDatepickerModule, MatNativeDateModule, MatTabsModule, MatStepperModule, MatProgressSpinnerModule],
+    MatDatepickerModule, MatNativeDateModule, MatTabsModule, MatStepperModule, MatProgressSpinnerModule, MatPaginatorModule,
+    MatSortModule, MatTableModule],
   exports: [MatButtonModule, MatToolbarModule, MatCardModule, MatInputModule, MatIconModule, MatCheckboxModule,
     MatMenuModule, MatFormFieldModule, MatDialogModule, MatExpansionModule, MatAutocompleteModule, MatSelectModule,
-    MatDatepickerModule, MatNativeDateModule, MatTabsModule, MatStepperModule, MatProgressSpinnerModule]
+    MatDatepickerModule, MatNativeDateModule, MatTabsModule, MatStepperModule, MatProgressSpinnerModule, MatPaginatorModule,
+    MatSortModule, MatTableModule]
 })
 export class CustomMaterialModule { }

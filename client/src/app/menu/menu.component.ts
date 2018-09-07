@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilityService } from '../services/utility.service';
 import { BreadCrumb } from '../menu/breadCrumb';
+import { LocalStorageService } from '../services/localStorage.service';
 
 @Component({
   selector: 'menu',
@@ -13,10 +14,24 @@ export class MenuComponent {
   title = 'Team Operations System';
   titleXS = 'Team Operations';
   bread: BreadCrumb;
+  userRoles: any[];
+  isUserAdmin: boolean = false;
+  isComponentReady: boolean = false;
 
-  constructor(private utilityService: UtilityService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private utilityService: UtilityService, private router: Router, private route: ActivatedRoute,
+                    private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
+
+    if(this.localStorageService.getUserDataValueFromLocalStorage()) {
+      this.userRoles = this.localStorageService.getUserDataValueFromLocalStorage().roles;
+      this.userRoles.forEach(r => {
+        if(r.name === 'ADMIN') {
+          this.isUserAdmin = true;
+        }
+        this.isComponentReady = true;
+      })
+    }
 
     this.utilityService.currentBreadCrumb.subscribe(bread => this.bread = bread);
     /*
@@ -43,6 +58,11 @@ export class MenuComponent {
   navigateEmployeeHome() {
     this.utilityService.addBreadCrumb(1, 'Employees', 'view/employees', 0, 'entities', '');
     this.router.navigate(['view/employees'], { skipLocationChange: false });
+  }
+
+  navigateAdmin() {
+    this.utilityService.addBreadCrumb(1, 'Admin', 'view/admin', 0, 'single', '');
+    this.router.navigate(['view/admin'], { skipLocationChange: false });
   }
 
   navigateAbout() {

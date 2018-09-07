@@ -59,23 +59,21 @@ login mat-card {
   padding-left: 0;
 }
 
- body {
-    background-color: #e8e4d9;
-     background-image: url(./background-tos.png);
-     //background-image: url(./background-9.jpg);
+body {
+    background-image: url(./background-tos_old.jpg);
     background-position-x: center;
-     background-repeat: no-repeat;
-     background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     /* background-attachment: fixed;
-     background: #f5f5f5;
-     background: linear-gradient(56deg, #dbdbdb, #f1f1f1);
-     background: linear-gradient(96deg, #f4f4f4, #f1f1f1);
-     background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-     background: linear-gradient(110deg, #ffca28 60%, #ffed4b 60%);
-     background: linear-gradient(110deg, #000428 60%, #004e92 );
-     background: linear-gradient(45deg, rgba(242, 34, 50, 0.5), rgba(255, 187, 54, 0.6) 100%);
-     */
-}
+       background: linear-gradient(56deg, #dbdbdb, #f1f1f1);
+       background: linear-gradient(96deg, #f4f4f4, #f1f1f1);
+       background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+       background: linear-gradient(110deg, #ffca28 60%, #ffed4b 60%);
+       background: linear-gradient(110deg, #000428 60%, #004e92 );
+       background: linear-gradient(45deg, rgba(242, 34, 50, 0.5), rgba(255, 187, 54, 0.6) 100%);
+       */
+  }
+  
  .tos-menu-style menu {
      margin: 12px 0 0 0;
 }
@@ -83,7 +81,6 @@ login mat-card {
      font: 800 16px/16px Roboto,"Helvetica Neue",sans-serif
 }
  .tos-body-style {
-     //background-color: #f6f6f6;
      min-height: 76vh;
 }
  .tos-menu-style {
@@ -393,6 +390,7 @@ register mat-form-field,
 }
 .tos-title-style > h2 {
     font: 400 26px/26px Arimo,sans-serif;
+    color: #d97800;
 }
 
  .mat-dialog-actions {

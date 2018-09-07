@@ -14,6 +14,7 @@
       <br><br>
       <button mat-raised-button class="tos-primary-button" (click)="register(newUser)">Register</button>
       <br><br>
+      <a *ngIf = "errorMessage !== undefined" style="padding-left: 16px; color: red; font-size: 12px"> {{errorMessage}} </a>
       <p class="font-small grey-text d-flex justify-content-end">Already a member?
          <a routerLink="../../view/login" href="#" class="blue-text ml-1"> Login</a>
       </p>

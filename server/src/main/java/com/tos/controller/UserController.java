@@ -59,6 +59,14 @@ public class UserController {
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
+	@PutMapping("/users/{id}/roles")
+	public ResponseEntity<Void> updateUserRoles(@Valid @RequestBody User user, @PathVariable Long id) {
+		if (userService.updateUserRoles(user, id) == false) {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<Void> deleteUser(@PathVariable long id) {

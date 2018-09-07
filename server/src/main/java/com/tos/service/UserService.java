@@ -8,7 +8,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +29,28 @@ public class UserService {
 	@Autowired
 	private PasswordEncoder userPasswordEncoder;
 
+	public boolean isCurrentUserAdmin() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Optional<User> currentUser = userRepository.findByUsername(auth.getName());
+
+		if (currentUser.isPresent()) {
+			User user = currentUser.get();
+
+			if (user.getRoles().stream().filter(r -> r.getName().equals("ADMIN")).count() > 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/* search all users */
 	public List<User> getAllUser() {
-		return userRepository.findAll();
+
+		if (isCurrentUserAdmin() == true) {
+			return userRepository.findAll();
+		}
+		return null;
+
 	}
 
 	/* to save a user */
@@ -65,7 +83,8 @@ public class UserService {
 				&& requestingUserOption.get().getUsername().equals(currentUser.get().getUsername())) {
 
 			User user = requestingUserOption.get();
-			UserResponse userResponse = new UserResponse(user.getId(), user.getUsername(), user.getEmail(), user.getRoles());
+			UserResponse userResponse = new UserResponse(user.getId(), user.getUsername(), user.getEmail(),
+					user.getRoles());
 			return userResponse;
 		}
 		return null;
@@ -79,12 +98,46 @@ public class UserService {
 		return userRepository.save(userData);
 	}
 
+	/* to update Roles of a user */
+	public boolean updateUserRoles(User user, Long userId) {
+
+		if (userRepository.findOne(userId) == null) {
+			return false;
+		}
+		if (isCurrentUserAdmin() == true) {
+			User currentUser = userRepository.findOne(userId);
+			Set<Role> userRoles = currentUser.getRoles();
+			userRoles.clear();
+			currentUser.setRoles(userRoles);
+			userRepository.save(currentUser);
+
+			Set<Role> userRole = new HashSet<>();
+			for (Role role : user.getRoles()) {
+				userRole.add(roleRepository.findByName(role.getName()));
+			}
+
+			currentUser.setRoles(userRole);
+			
+			userRepository.save(currentUser);
+		}
+		return true;
+	}
+
 	/* delete a user */
 	public boolean deleteUser(Long userId) {
 		if (userRepository.findOne(userId) == null) {
 			return false;
 		}
-		userRepository.delete(userId);
+		if (isCurrentUserAdmin() == true) {
+			User user = userRepository.findOne(userId);
+			Set<Role> roles = user.getRoles();
+			roles.clear();
+			user.setRoles(roles);
+			userRepository.save(user);
+			userRepository.delete(userId);
+
+		}
+
 		return true;
 	}
 

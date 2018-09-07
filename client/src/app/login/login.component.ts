@@ -37,14 +37,18 @@ export class LoginComponent {
     this.authService.login(usercreds)
       .then((data) => {
         this.localStorageService.setAuthorizationData(data);
-        this.utilityService.addTokenSubject(data.access_token);
 
-            this.authService.getCurrentUser(usercreds.username)
-              .then((data) => {
-                    this.localStorageService.setUserData(data);
-              });
 
-        this.router.navigate(['/home']);
+          this.authService.getCurrentUser(usercreds.username)
+            .then((data) => {
+                  this.localStorageService.setUserData(data);
+            });
+
+          setTimeout(() => {
+            this.utilityService.addTokenSubject(data.access_token);
+            this.router.navigate(['/home']);
+          }, 2000);
+
       },
       (err) => {
         this.wrongCreds = "Invalid Credentials"

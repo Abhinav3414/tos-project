@@ -22,7 +22,7 @@ export class RegisterComponent {
   };
 
   userRoles: Array<String>;
-  wrongCreds: string = undefined;
+  errorMessage: string = undefined;
 
   constructor(private router: Router, private authService: AuthService,
     private localStorageService: LocalStorageService, private utilityService: UtilityService,
@@ -37,7 +37,10 @@ export class RegisterComponent {
       .then((resCustomerData: any) => {
         location.href = (location.origin === 'http://localhost:4200') ? location.origin : this.urlService.getAppBaseUrl();
       },
-      (err) => console.log("users could not be updated :" + err)
+      (err) => {
+        this.errorMessage = "Invalid Username/Password";
+        console.log("users could not be updated :" + err.error);
+      }
       );
   }
 

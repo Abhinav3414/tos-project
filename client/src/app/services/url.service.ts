@@ -1,9 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { UtilityService } from './utility.service';
-import { LocalStorageService } from './localStorage.service';
-
-
 
 @Injectable()
 export class UrlService {
@@ -12,6 +7,7 @@ export class UrlService {
   baseResourceUrl = '/tos-app/tos/';
   baseResourceUserUrl = '/tos-app/tosuser/';
   propertyUrl = '/properties/uri/';  // Not used for now
+  usersUrl = '/tos-app/tosuser/'
 
   baseUrl: string;
 
@@ -21,6 +17,10 @@ export class UrlService {
 
   getTokenApiUrl() {
     return this.baseUrl + this.tokenApiUrl;
+  }
+
+  getUserUrl() {
+    return this.baseUrl + this.usersUrl;
   }
 
   getAppBaseUrl() {
