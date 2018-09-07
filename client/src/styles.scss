@@ -55,16 +55,21 @@ login mat-card {
 .tos-login-heading {
   font: 400 27px/20px Roboto,"Helvetica Neue",sans-serif;
 }
+
+mat-accordion > mat-expansion-panel.mat-expansion-panel {
+    margin: .5em 0;
+}
+
 .mat-expansion-panel-body .container {
   padding-left: 0;
 }
 
 body {
-    background-image: url(./background-tos_old.jpg);
+   /* background-image: url(./background-tos_old.jpg);
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-attachment: fixed;
+     background-attachment: fixed;
        background: linear-gradient(56deg, #dbdbdb, #f1f1f1);
        background: linear-gradient(96deg, #f4f4f4, #f1f1f1);
        background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
@@ -75,14 +80,29 @@ body {
   }
   
  .tos-menu-style menu {
-     margin: 12px 0 0 0;
+     margin: 0;
 }
  .tos-container-heading {
      font: 800 16px/16px Roboto,"Helvetica Neue",sans-serif
 }
+
  .tos-body-style {
      min-height: 76vh;
+     background: linear-gradient(to right, rgba(247, 215, 193, 0.95), rgba(230, 160, 126, 0.95));
 }
+
+.tos-menu-style {
+    background: linear-gradient(to right, rgba(247, 215, 193, 0.95), rgba(230, 160, 126, 0.95));
+}
+
+.tos-body-background {
+    background: #f6f6f6;
+}
+
+.tos-menu-background {
+    background: white;
+}
+
  .tos-menu-style {
    min-height: 16vh;
 }
@@ -104,7 +124,7 @@ body {
 }
  footer {
      color: #ffffff;
-     background: #6d6d6d;;
+     background: #212121;;
      font-size: 12px;
      right: 0;
      bottom: 0;
@@ -113,6 +133,8 @@ body {
      height: inherit;
 
 .tos-footer {
+    padding-left: 15%;
+    padding-right: 15%;
 
   display: flex;
   p {
@@ -127,15 +149,13 @@ body {
   }
 
   .social-icons {
-    background: #615757;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 25px;
-  width: 25px;
-  padding: 7px;
-
-
-
+    background: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    padding: 7px 8px;
+    color: #ef7832;
   }
 
   .social-icons:hover {
@@ -148,6 +168,17 @@ body {
  .mat-form-field {
      width: 200px;
 }
+
+.tos-action-button .mat-icon {
+    cursor:pointer;
+    color:#6d6c6c;
+}
+
+.tos-action-button .mat-icon:hover {
+    color:#dcb700;
+    transition: all 0.1s ease-in-out;
+}
+
  .tos-button.mat-button {
      border: 1px solid #a4a199;
      border-radius: 3px;
@@ -202,7 +233,7 @@ register .tos-primary-button.mat-raised-button,
      padding: 0 12px;
 }
  .tos-menu-buttons > a:hover {
-     color: #6d6d6b !important;
+     color: #dcb700 !important;
      transition: all 80ms ease !important;
 }
 .tos-menu-buttons {
@@ -262,8 +293,13 @@ font-weight: 400;
      color: black;
      text-decoration: none;
 }
- .mat-toolbar {
-     background: none;
+ menu .mat-toolbar {
+    background: none;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: 15px;
+    padding-bottom: 12px;
+    border-bottom: 5px solid #fcd307;
 }
 
  .mat-card .mat-card-actions {
@@ -384,6 +420,7 @@ register mat-card-content button.mat-button,
  login mat-card-content button.mat-button {
      margin-left: -10px;
 }
+
 register mat-form-field,
  login mat-form-field {
      padding-left: 16px;
@@ -417,17 +454,22 @@ register mat-form-field,
  employee-main > div.container > div > mat-card > mat-card-content > div > span {
      margin : 0;
 }
+
+breadcrumb div {
+    height: 34px;
+    background: #d8d6d038;;
+}
  .tos-breads {
      border-radius: 3px;
      height: 34px;
      line-height: 34px;
      cursor: pointer;
-     background: #c3bfb338;
-     padding-left: 10px;
      font-size: 13px;
+    padding-left: 16%;
+    padding-right: 15%;
 }
  .tos-breadcrumb-content:hover {
-     color: #6d6d6b;
+     color: #e4a903;
 }
 /*settings for rating stars */
  employee-view .mat-card-title {
@@ -488,25 +530,29 @@ register mat-form-field,
  .tos-router-container .mat-card {
      color: #757575;
 }
- .tos-router-container .mat-card th {
-     font-weight: 400;
-     color: black;
-}
  .tos-stars {
      display: flex;
      margin: auto;
 }
  .tos-add-button {
-     cursor:pointer;
-     color:#626262;
-     font-size: 2.5em;
+    cursor: pointer;
+    color: #626262;
+    font-size: 3em;
+    padding: 2px 15px;
 }
  .tos-add-button:hover {
-     color:grey;
+     color:#dcb700;
 }
  .mat-card mat-card-content > span {
      cursor: default;
 }
+
+mat-card-content th {
+    color: #ad5000;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
  .container .mat-expansion-panel-body {
      display: flex;
 }
@@ -538,7 +584,7 @@ register mat-form-field,
 }
 
  .shake-hover-style .tos-cust-heading {
-     color: #0092e6 !important;
+     color: #0074b7 !important;
 }
  .shake-hover-style .tos-cust-heading:hover {
     /* transition: all .3s ease;

@@ -20,8 +20,10 @@ export class ContentComponent {
       this.tokenSub = tokenSubject;
     })
     var local = this.localStorageService.getValueFromLocalStorage();
-    if (local !== null)
-     this.tokenSub = local.access_token;
+    if (local !== null) {
+      this.tokenSub = local.access_token;
+    }
+     
 
   }
 }

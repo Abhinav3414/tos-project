@@ -40,11 +40,11 @@
             Worked for: {{skill.duration}} months<br>Last Used: {{skill.lastUsed}}<br>
          </mat-card-content>
          <mat-card-actions>
-            <span (click)="openUpdateDialog('skills',skill.id)" style="cursor:pointer;color:grey">
+            <span (click)="openUpdateDialog('skills',skill.id)" class="tos-action-button">
                <mat-icon>create</mat-icon>
             </span>
             &emsp;
-            <span (click)="delelteEntity('skills', skill.id, employeeSkills )" style="cursor:pointer; color:grey">
+            <span (click)="delelteEntity('skills', skill.id, employeeSkills )" class="tos-action-button">
                <mat-icon>delete</mat-icon>
             </span>
          </mat-card-actions>
@@ -77,11 +77,11 @@
             Certification Year : {{certification.yearOfCertification}}
          </mat-card-content>
          <mat-card-actions>
-            <span (click)="openUpdateDialog('certifications',certification.id)" style="cursor:pointer;color:grey">
+            <span (click)="openUpdateDialog('certifications',certification.id)" class="tos-action-button">
                <mat-icon  >create</mat-icon>
             </span>
             &emsp;
-            <span (click)="delelteEntity('certifications', certification.id, employeeCertifications)" style="cursor:pointer; color:grey">
+            <span (click)="delelteEntity('certifications', certification.id, employeeCertifications)" class="tos-action-button">
                <mat-icon  >delete</mat-icon>
             </span>
          </mat-card-actions>
@@ -116,11 +116,11 @@
             <br>Reason: {{ training.reason}}
          </mat-card-content>
          <mat-card-actions>
-            <span (click)="openUpdateDialog('trainings',training.id)" style="cursor:pointer;color:grey">
+            <span (click)="openUpdateDialog('trainings',training.id)" class="tos-action-button">
                <mat-icon  >create</mat-icon>
             </span>
             &emsp;
-            <span (click)="delelteEntity('trainings', training.id, employeeTrainings )" style="cursor:pointer; color:grey">
+            <span (click)="delelteEntity('trainings', training.id, employeeTrainings )" class="tos-action-button">
                <mat-icon  >delete</mat-icon>
             </span>
          </mat-card-actions>
@@ -153,11 +153,11 @@
             Recieved From: {{feedback.receivedFrom}} <br>Action Taken: {{feedback.actionsTaken}}<br>
          </mat-card-content>
          <mat-card-actions>
-            <span (click)="openUpdateDialog('feedbacks',feedback.id)" style="cursor:pointer;color:grey">
+            <span (click)="openUpdateDialog('feedbacks',feedback.id)" class="tos-action-button">
                <mat-icon  >create</mat-icon>
             </span>
             &emsp;
-            <span (click)="delelteEntity('feedbacks', feedback.id, employeeFeedbacks)" style="cursor:pointer; color:grey">
+            <span (click)="delelteEntity('feedbacks', feedback.id, employeeFeedbacks)" class="tos-action-button">
                <mat-icon  >delete</mat-icon>
             </span>
          </mat-card-actions>
@@ -191,11 +191,11 @@
             Proposed Date: {{improvementArea.proposedDate | date : 'd-M-yy'}}<br>
          </mat-card-content>
          <mat-card-actions>
-            <span (click)="openUpdateDialog('improvementareas', improvementArea.id)" style="cursor:pointer;color:grey">
+            <span (click)="openUpdateDialog('improvementareas', improvementArea.id)" class="tos-action-button">
                <mat-icon  >create</mat-icon>
             </span>
             &emsp;
-            <span (click)="delelteEntity('improvementareas', improvementArea.id, employeeImprovementAreas )" style="cursor:pointer; color:grey">
+            <span (click)="delelteEntity('improvementareas', improvementArea.id, employeeImprovementAreas )" class="tos-action-button">
                <mat-icon  >delete</mat-icon>
             </span>
          </mat-card-actions>

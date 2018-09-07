@@ -32,8 +32,8 @@
                  Velocity : {{ member.velocity}}
               </mat-card-content>
               <mat-card-actions>
-                 <span (click)="openUpdateDialog('teammembers',member.id)" style="cursor:pointer;color:grey"><mat-icon  >create</mat-icon></span>&emsp;
-                 <span (click)="delelteEntity('teammembers',member.id,customerTeamMembers )" style="cursor:pointer; color:grey"><mat-icon  >delete</mat-icon></span>
+                 <span (click)="openUpdateDialog('teammembers',member.id)" class="tos-action-button"><mat-icon  >create</mat-icon></span>&emsp;
+                 <span (click)="delelteEntity('teammembers',member.id,customerTeamMembers )" class="tos-action-button"><mat-icon  >delete</mat-icon></span>
               </mat-card-actions>
            </mat-card>
         </div>
@@ -65,8 +65,8 @@
                  PLatform: {{action.platform}}<br> Status: {{action.status}}
               </mat-card-content>
               <mat-card-actions>
-                <span (click)="openUpdateDialog('actions',action.id)" style="cursor:pointer;color:grey"><mat-icon  >create</mat-icon></span>&emsp;
-                <span (click)="delelteEntity('actions',action.id,customerActions)" style="cursor:pointer; color:grey"><mat-icon  >delete</mat-icon></span>
+                <span (click)="openUpdateDialog('actions',action.id)" class="tos-action-button"><mat-icon  >create</mat-icon></span>&emsp;
+                <span (click)="delelteEntity('actions',action.id,customerActions)" class="tos-action-button"><mat-icon  >delete</mat-icon></span>
               </mat-card-actions>
            </mat-card>
         </div>
@@ -96,8 +96,8 @@
                     Frequency: {{projectRythm.frequency}} <br>Who: {{projectRythm.whoRythm}} <br>Where: {{projectRythm.whereRythm}}
                  </mat-card-content>
                  <mat-card-actions>
-                   <span (click)="openUpdateDialog('projectrythms',projectRythm.id)" style="cursor:pointer;color:grey"><mat-icon  >create</mat-icon></span>&emsp;
-                   <span (click)="delelteEntity('projectrythms',projectRythm.id,customerProjectRythms)" style="cursor:pointer; color:grey"><mat-icon  >delete</mat-icon></span>
+                   <span (click)="openUpdateDialog('projectrythms',projectRythm.id)" class="tos-action-button"><mat-icon  >create</mat-icon></span>&emsp;
+                   <span (click)="delelteEntity('projectrythms',projectRythm.id,customerProjectRythms)" class="tos-action-button"><mat-icon  >delete</mat-icon></span>
                  </mat-card-actions>
               </mat-card>
            </div>

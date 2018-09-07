@@ -41,11 +41,11 @@
                Signed By: {{goal.signedBy}}
             </mat-card-content>
             <mat-card-actions>
-               <span (click)="openUpdateDialog('goals',goal.id)" style="cursor:pointer;color:grey">
+               <span (click)="openUpdateDialog('goals',goal.id)" class="tos-action-button">
                   <mat-icon  >create</mat-icon>
                </span>
                &emsp;
-               <span (click)="delelteEntity('goals',goal.id,customerGoals)" style="cursor:pointer; color:grey">
+               <span (click)="delelteEntity('goals',goal.id,customerGoals)" class="tos-action-button">
                   <mat-icon  >delete</mat-icon>
                </span>
             </mat-card-actions>
@@ -80,11 +80,11 @@
               PLatform: {{action.platform}}<br> Status: {{action.status}}
             </mat-card-content>
             <mat-card-actions>
-               <span (click)="openUpdateDialog('actions',action.id)" style="cursor:pointer;color:grey">
+               <span (click)="openUpdateDialog('actions',action.id)" class="tos-action-button">
                   <mat-icon  >create</mat-icon>
                </span>
                &emsp;
-               <span (click)="delelteEntity('actions',action.id,customerActions)" style="cursor:pointer; color:grey">
+               <span (click)="delelteEntity('actions',action.id,customerActions)" class="tos-action-button">
                   <mat-icon  >delete</mat-icon>
                </span>
             </mat-card-actions>
@@ -117,11 +117,11 @@
                Specialization:  {{team.specialization}}
             </mat-card-content>
             <mat-card-actions>
-               <span (click)="openUpdateDialog('teams',team.id)" style="cursor:pointer;color:grey">
+               <span (click)="openUpdateDialog('teams',team.id)" class="tos-action-button">
                   <mat-icon  >create</mat-icon>
                </span>
                &emsp;
-               <span (click)="delelteEntity('teams',team.id,customerTeams)" style="cursor:pointer; color:grey">
+               <span (click)="delelteEntity('teams',team.id,customerTeams)" class="tos-action-button">
                   <mat-icon  >delete</mat-icon>
                </span>
             </mat-card-actions>
@@ -157,11 +157,11 @@
                Contact: {{sholder.phoneNo}}<br>
             </mat-card-content>
             <mat-card-actions>
-               <span (click)="openUpdateDialog('stakeholders',sholder.id)" style="cursor:pointer;color:grey">
+               <span (click)="openUpdateDialog('stakeholders',sholder.id)" class="tos-action-button">
                   <mat-icon  >create</mat-icon>
                </span>
                &emsp;
-               <span (click)="delelteEntity('stakeholders',sholder.id,customerStakeholders)" style="cursor:pointer; color:grey">
+               <span (click)="delelteEntity('stakeholders',sholder.id,customerStakeholders)" class="tos-action-button">
                   <mat-icon  >delete</mat-icon>
                </span>
             </mat-card-actions>
@@ -196,11 +196,11 @@
                Purpose: {{travel.purpose}}
             </mat-card-content>
             <mat-card-actions>
-               <span (click)="openUpdateDialog('travels',travel.id)" style="cursor:pointer;color:grey">
+               <span (click)="openUpdateDialog('travels',travel.id)" class="tos-action-button">
                   <mat-icon  >create</mat-icon>
                </span>
                &emsp;
-               <span (click)="delelteEntity('travels',travel.id,customerTravels)" style="cursor:pointer; color:grey">
+               <span (click)="delelteEntity('travels',travel.id,customerTravels)" class="tos-action-button">
                   <mat-icon  >delete</mat-icon>
                </span>
             </mat-card-actions>

@@ -71,11 +71,11 @@
                      status: {{action.status}}
                   </mat-card-content>
                   <mat-card-actions>
-                     <span (click)="openUpdateDialog('actions',action.id)" style="cursor:pointer;color:grey">
+                     <span (click)="openUpdateDialog('actions',action.id)" class="tos-action-button">
                         <mat-icon  >create</mat-icon>
                      </span>
                      &emsp;
-                     <span (click)="delelteEntity('actions',action.id,customerActions)" style="cursor:pointer; color:grey">
+                     <span (click)="delelteEntity('actions',action.id,customerActions)" class="tos-action-button">
                         <mat-icon  >delete</mat-icon>
                      </span>
                   </mat-card-actions>

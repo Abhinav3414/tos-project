@@ -1,6 +1,6 @@
    <h3 class="tos-component-heading">All Employees</h3>
    <div class=" tos-button-right">
-      <span  (click)="openDialog()" class="tos-add-button">+</span>
+      <span> <span  (click)="openDialog()" class="tos-add-button">+</span> </span>
    </div>
    <div class="container" fxlayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%" fxLayoutAlign="flex-start"  @fade>
         <div fxFlex="30%"  *ngFor = "let emp of employees">
@@ -20,8 +20,8 @@
              </div>
             </mat-card-content>
             <mat-card-actions>
-               <span (click)="delelteEmployee(emp.id)" style="cursor:pointer; color:grey"><mat-icon  >delete</mat-icon></span>&emsp;
-               <span (click)="openUpdateDialog(emp.id)" style="cursor:pointer;color:grey"><mat-icon  >create</mat-icon></span>
+               <span (click)="delelteEmployee(emp.id)" class="tos-action-button"><mat-icon  >delete</mat-icon></span>&emsp;
+               <span (click)="openUpdateDialog(emp.id)" class="tos-action-button"><mat-icon  >create</mat-icon></span>
             </mat-card-actions>
          </mat-card>
       </div>
