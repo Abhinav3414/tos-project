@@ -33,6 +33,8 @@ public class User {
 	private String username;
 	private String email;
 	private String password;
+	private String imageName;
+	
 	private boolean isActive;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -95,6 +97,14 @@ public class User {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	public Set<Role> getRoles() {

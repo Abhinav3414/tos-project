@@ -1,13 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 
 import { DataService } from '../services/data.service';
 import { UtilityService } from '../services/utility.service';
 
 import { EmployeeDialogComponent } from './employee-dialog.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { Employee } from './employee';
 import { BreadCrumb } from '../menu/breadCrumb';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -29,6 +28,7 @@ export class EmployeeMainComponent {
   employees = [];
   employee = new Employee();
   bread: BreadCrumb;
+  netImage:any = "./assets/uploads/employees/";
 
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute,
     private dialog: MatDialog, private utilityService: UtilityService) {

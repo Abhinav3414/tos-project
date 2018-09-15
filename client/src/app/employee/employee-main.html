@@ -14,6 +14,9 @@
             </mat-card-header>
             <mat-card-content>
     <div>
+
+        <img [src]="netImage + emp.imageName" class="tos-img" alt="User pic">
+
             <span>   Joining Date: {{emp.joiningDate | date : 'd-M-yy'}} </span><br>
           <!--  <span> {{emp.responsibilities}}</span><br> -->
                 <span>Experience: {{emp.yearsOfExperience}} years</span>

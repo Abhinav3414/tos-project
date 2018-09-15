@@ -84,7 +84,7 @@ public class UserService {
 
 			User user = requestingUserOption.get();
 			UserResponse userResponse = new UserResponse(user.getId(), user.getUsername(), user.getEmail(),
-					user.getRoles());
+					user.getRoles(), user.getImageName());
 			return userResponse;
 		}
 		return null;

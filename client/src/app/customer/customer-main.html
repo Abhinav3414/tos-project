@@ -14,11 +14,13 @@
          </mat-card-header>
          <mat-card-content>
             <table style="width: 100%;">
+                <th> <img [src]="netImage + cust.imageName" class="tos-img" alt="User pic"> </th>
                <th > <span *ngIf="cust.domain != null">Domain </span></th>
                <th > <span *ngIf="cust.contactPerson != null">Contact Person </span></th>
                <th > <span  *ngIf="cust.addresses !==null">Contact Address </span> </th>
                <th >Contact Number</th>
                <tr class="tos-table" style="text-align: center;">
+                <td> </td>
                   <td> <span *ngIf="cust.domain != null" >{{cust.domain}} </span> </td>
                   <td> <span *ngIf="cust.contactPerson != null" >{{cust.contactPerson}} </span> </td>
                   <td ><span *ngIf="cust.addresses !== null" >{{cust.address}}  {{cust.country}} </span>

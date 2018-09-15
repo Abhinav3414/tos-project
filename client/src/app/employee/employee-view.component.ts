@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { DataService } from '../services/data.service';
 import { Employee } from './employee';
-import { EmployeeDialogComponent } from './employee-dialog.component';
 import { SkillDialogComponent } from './skill/skill-dialog.component';
 import { CertificationDialogComponent } from './certification/certification-dialog.component';
 import { TrainingDialogComponent } from './training/training-dialog.component';
@@ -59,9 +58,11 @@ export class EmployeeViewComponent {
 
   teams = [];
   Arr = Array; //Array type captured in a variable
+  netImage:any = "./assets/uploads/employees/";
+  userImageName: string;
 
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute,
-    private dialog: MatDialog) {
+    private dialog: MatDialog, private elem: ElementRef) {
   }
 
   ngOnInit() {
@@ -98,6 +99,17 @@ export class EmployeeViewComponent {
           });
       }
     });
+  }
+
+  uploadImage(id: number) {
+    let files = this.elem.nativeElement.querySelector('#selectFile').files;
+    let file = files[0];
+
+    console.log("id is "+ id)
+    this.dataService.uploadProfilePic(file, 'employees', id).then((res) => {
+      console.log("File Upload Successful !!!")
+      console.log(res);
+    })
   }
 
   openDialog(entityName): void {

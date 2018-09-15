@@ -33,6 +33,7 @@ public class Employee {
 	private Date joiningDate;
 	private String yearsOfExperience;
 	private String responsibilities;
+	private String imageName;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
@@ -73,6 +74,14 @@ public class Employee {
 	public Employee setResponsibilities(String responsibilities) {
 		this.responsibilities = responsibilities;
 		return this;
+	}
+	
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	public Long getId() {

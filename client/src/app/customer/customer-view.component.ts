@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { DataService } from '../services/data.service';
 import { UtilityService } from '../services/utility.service';
@@ -55,10 +55,12 @@ export class CustomerViewComponent {
   customerTeam = new Team();
   goalTenures = ['Weekly', 'Monthly', 'Quarterly', 'Yearly'];
 
+  netImage:any = "./assets/uploads/customers/";
+
   bread: BreadCrumb;
 
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute,
-    private dialog: MatDialog, private utilityService: UtilityService) {
+    private dialog: MatDialog,  private elem: ElementRef, private utilityService: UtilityService) {
   }
 
   ngOnInit() {
@@ -100,6 +102,16 @@ export class CustomerViewComponent {
   getGoalDesc(goalId) {
     var index = this.customerGoals.findIndex(e => e.id === goalId);
     return this.customerGoals[index].description;
+  }
+
+  uploadImage(id: number) {
+    let files = this.elem.nativeElement.querySelector('#selectFile').files;
+    let file = files[0];
+
+    this.dataService.uploadProfilePic(file, 'customers', id).then((res) => {
+      console.log("File Upload Successful !!!")
+      console.log(res);
+    })
   }
 
   openDialog(entityName): void {

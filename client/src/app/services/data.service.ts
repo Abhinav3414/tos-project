@@ -16,14 +16,20 @@ export class DataService {
   token: any;
   baseResourceURL: string;
   baseResourceUserUrl: string;
+  fileUrl: string;
   httpOptions : any
+  headers = new HttpHeaders();
 
   constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService,
     private utilityService: UtilityService, private urlService: UrlService) {
-  //  let headers = new HttpHeaders().set('Content-Type', 'application/json')
-  //    .set('Accept', 'application/json');
+  
+      //  let headers = new HttpHeaders().set('Content-Type', 'application/json')
+
+      this.headers.set('Content-Type', 'multipart/form-data');
+
       this.baseResourceURL = this.urlService.getBaseResourceUrl();
       this.baseResourceUserUrl = this.urlService.getBaseResourceUserUrl();
+      this.fileUrl = this.urlService.getFileUrl();
   }
 
   getToken() {
@@ -74,6 +80,13 @@ export class DataService {
   postUserEntity(entityName: string, entity: any) {
     return this.httpClient.post(this.urlService.getBaseResourceUserUrl() + entityName + "/", entity).toPromise()
       .then((response: Response) => response);
+  }
+
+  uploadProfilePic(fileData: File, entityType: any, id: number) {
+    let formData: FormData = new FormData(); 
+    formData.append('file', fileData); 
+    return this.httpClient.post(this.fileUrl + "uploadprofilepic" + "/" + entityType + "/" + id + this.getToken(), formData, { headers: this.headers }).toPromise()
+    .then((response: Response) => response);
   }
 
 }

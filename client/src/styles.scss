@@ -64,6 +64,11 @@ mat-accordion > mat-expansion-panel.mat-expansion-panel {
   padding-left: 0;
 }
 
+.tos-img {
+    height: 50px;
+    width: 50px;
+}
+
 body {
    /* background-image: url(./background-tos_old.jpg);
     background-position-x: center;
@@ -88,11 +93,15 @@ body {
 
  .tos-body-style {
      min-height: 76vh;
-     background: linear-gradient(to right, rgba(247, 215, 193, 0.95), rgba(230, 160, 126, 0.95));
+ //    background: linear-gradient(to right, rgba(247, 215, 193, 0.95), rgba(230, 160, 126, 0.95));
+     background-image: url(./tos-bg.JPG);
+     background-position-x: unset;
+     background-repeat: no-repeat;
+     background-size: contain;
 }
 
 .tos-menu-style {
-    background: linear-gradient(to right, rgba(247, 215, 193, 0.95), rgba(230, 160, 126, 0.95));
+   // background: linear-gradient(to right, rgba(247, 215, 193, 0.95), rgba(230, 160, 126, 0.95));
 }
 
 .tos-body-background {
@@ -104,11 +113,13 @@ body {
 }
 
  .tos-menu-style {
-   min-height: 16vh;
+   min-height: 15.5vh;
 }
 .tos-footer-style {
  min-height: 8vh;
+ border-top: 5px solid #fcd307;
 }
+
 .tos-entity-name {
   font: 400 17px/17px Roboto,"Helvetica Neue",sans-serif;
     padding-bottom: 8px;
@@ -155,7 +166,7 @@ body {
     height: 25px;
     width: 25px;
     padding: 7px 8px;
-    color: #ef7832;
+    color: #fcd307;
   }
 
   .social-icons:hover {
@@ -427,7 +438,7 @@ register mat-form-field,
 }
 .tos-title-style > h2 {
     font: 400 26px/26px Arimo,sans-serif;
-    color: #d97800;
+    color: #525252;
 }
 
  .mat-dialog-actions {

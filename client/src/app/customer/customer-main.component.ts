@@ -32,6 +32,8 @@ export class CustomerMainComponent {
   customer = new Customer();
   bread: BreadCrumb;
   myControl: FormControl = new FormControl();
+  
+  netImage:any = "./assets/uploads/customers/";
 
   countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda",
     "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh",

@@ -8,6 +8,12 @@
    <a class="tos-text">{{employee.responsibilities}} </a>
    <i class="fa fa-certificate tos-icons" title="Years of Experience" aria-hidden="true"></i>
    <a class="tos-text">{{employee.yearsOfExperience}} years of Experience </a>
+
+    <img [src]="netImage + employee.imageName" class="tos-img" alt="User pic">
+
+    <input type="file" id="selectFile" name="selectFile" class="tos-file-upload" accept="image/*">
+    <button mat-raised-button class="tos-primary-button" (click)="uploadImage(employee.id)" >Upload Image</button>
+
    </span>
 </div>
 <mat-accordion [multi]="true" @fade>

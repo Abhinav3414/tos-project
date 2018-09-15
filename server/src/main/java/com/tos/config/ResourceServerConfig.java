@@ -37,7 +37,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS,"**").permitAll()
-            .antMatchers("/tos/**").access("hasRole('ADMIN') or hasRole('MANAGER')")
+				.antMatchers("/tos/**").access("hasRole('ADMIN') or hasRole('MANAGER')")
+				.antMatchers("/tosfiles/**").hasAnyRole("ADMIN", "MANAGER", "EMPLOYEE", "CUSTOMER")
             ;
 		
 		

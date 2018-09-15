@@ -49,7 +49,10 @@ public class Customer {
 	private String remoteMachineDetails;
 	private String vpnDetails;
 	private String communicator;
-	private String skillsReuired;
+	private String skillsRequired;
+	
+	private String imageName;
+	
 	@Column
 	private Boolean isEnable;
 
@@ -217,12 +220,20 @@ public class Customer {
 		this.communicator = communicator;
 	}
 
-	public String getSkillsReuired() {
-		return skillsReuired;
+	public String getSkillsRequired() {
+		return skillsRequired;
 	}
 
-	public void setSkillsReuired(String skillsReuired) {
-		this.skillsReuired = skillsReuired;
+	public void setSkillsRequired(String skillsRequired) {
+		this.skillsRequired = skillsRequired;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	public Boolean getIsEnable() {

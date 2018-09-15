@@ -5,6 +5,7 @@ export class UrlService {
   tokenApiUrl = '/tos-app/oauth/token';
   appBaseUrl = '/tos-app/index.html';
   baseResourceUrl = '/tos-app/tos/';
+  fileUrl = '/tos-app/tosfiles/'
   baseResourceUserUrl = '/tos-app/tosuser/';
   propertyUrl = '/properties/uri/';  // Not used for now
   usersUrl = '/tos-app/tosuser/'
@@ -33,6 +34,10 @@ export class UrlService {
 
   getBaseResourceUserUrl() {
     return this.baseUrl + this.baseResourceUserUrl;
+  }
+
+  getFileUrl() {
+    return this.baseUrl + this.fileUrl;
   }
 
 }

@@ -17,13 +17,27 @@ export class MenuComponent {
   userRoles: any[];
   isUserAdmin: boolean = false;
   isComponentReady: boolean = false;
+  tokenSub = undefined;
 
   constructor(private utilityService: UtilityService, private router: Router, private route: ActivatedRoute,
                     private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
 
-    if(this.localStorageService.getUserDataValueFromLocalStorage()) {
+    this.utilityService.currenttokenSubject.subscribe(tokenSubject => {
+      this.tokenSub = tokenSubject;
+      if(this.localStorageService.getUserDataValueFromLocalStorage() || this.tokenSub.length > 0) {
+        this.enableMenu();
+      } else {
+        this.isComponentReady = false;
+      }
+
+    })
+    this.utilityService.currentBreadCrumb.subscribe(bread => this.bread = bread);
+
+  }
+  
+  enableMenu() {
       this.userRoles = this.localStorageService.getUserDataValueFromLocalStorage().roles;
       this.userRoles.forEach(r => {
         if(r.name === 'ADMIN') {
@@ -31,9 +45,12 @@ export class MenuComponent {
         }
         this.isComponentReady = true;
       })
-    }
+  }
 
-    this.utilityService.currentBreadCrumb.subscribe(bread => this.bread = bread);
+      
+     
+   
+    
     /*
       this.items = [
           {
@@ -43,7 +60,7 @@ export class MenuComponent {
           }
       ];
       */
-  }
+ 
 
   navigateHome() {
     this.utilityService.addBreadCrumb(0, 'None', '/', -1, 'none', '');

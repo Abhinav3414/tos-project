@@ -7,6 +7,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +17,7 @@ import com.tos.model.Role;
 import com.tos.model.User;
 import com.tos.repository.RoleRepository;
 import com.tos.repository.UserRepository;
+import com.tos.utility.FileStorageProperties;
 
 /**
  * This is the main class of Spring boot application contains run method which
@@ -28,6 +30,9 @@ import com.tos.repository.UserRepository;
 
 @SpringBootApplication
 @EnableJpaAuditing
+@EnableConfigurationProperties({
+    FileStorageProperties.class
+})
 public class TosApplication {
 
 	@Autowired

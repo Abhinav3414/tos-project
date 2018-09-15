@@ -10,6 +10,12 @@
       <a class="tos-text"> {{customer.domain}} </a>
       <i class="fa fa-snowflake-o tos-icons"  title="Ace5 Process" aria-hidden="true"></i>
       <a class="tos-text" (click)="navigateAce5(customer.id)" style="cursor:pointer"> Ace5 Process </a>
+
+      <img [src]="netImage + customer.imageName" class="tos-img" alt="User pic">
+
+      <input type="file" id="selectFile" name="selectFile" class="tos-file-upload" accept="image/*">
+      <button mat-raised-button class="tos-primary-button" (click)="uploadImage(customer.id)" >Upload Image</button>
+
    </span>
 </div>
 <mat-accordion [multi]="true" @fade>
